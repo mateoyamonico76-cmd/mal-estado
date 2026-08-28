@@ -6,7 +6,7 @@
     <title>MAL ESTADO ★ Sitio Oficial</title>
     
     <style>
-      /* ESTILOS BORDÓ Y NEGRO INTEGRADOS */
+      /* ESTILOS GENERALES */
       * {
           box-sizing: border-box;
           margin: 0;
@@ -27,36 +27,35 @@
           padding: 0 20px;
       }
 
-      /* HEADER Y LOGO */
+      /* HEADER Y LOGO ANIMADO */
       .header-banda {
-          padding: 40px 0 20px 0;
+          padding: 30px 0 20px 0;
           text-align: center;
           border-bottom: 2px solid #580016;
       }
 
-      logo-principal {
-          max-width: 420px;
-          width: 100%;
+      .logo-principal {
+          max-width: 320px;
+          width: 80%;
           height: auto;
-          /* Aplicamos la animación 'pulso-bordo' de 3 segundos infinita */
+          display: block;
+          margin: 0 auto;
           animation: pulso-bordo 3s infinite ease-in-out;
       }
 
-      /* DEFINICIÓN DE LA ANIMACIÓN DE RESPLANDOR BORDÓ */
       @keyframes pulso-bordo {
           0% {
               filter: drop-shadow(0 0 5px #580016);
               transform: scale(1);
           }
           50% {
-              filter: drop-shadow(0 0 20px #ff0040);
-              transform: scale(1.02); /* Crece sutilmente */
+              filter: drop-shadow(0 0 22px #800020) drop-shadow(0 0 8px #ff0040);
+              transform: scale(1.03);
           }
           100% {
               filter: drop-shadow(0 0 5px #580016);
               transform: scale(1);
           }
-      }
       }
 
       .subtitulo {
@@ -141,7 +140,7 @@
           margin-bottom: 15px;
       }
 
-      /* CONTENEDOR RESPONSIVO PARA YOUTUBE (16:9) */
+      /* CONTENEDOR RESPONSIVO PARA YOUTUBE */
       .video-container {
           position: relative;
           padding-bottom: 56.25%;
@@ -216,9 +215,9 @@
 <body>
 
   <!-- CABECERA PRINCIPAL -->
- <header class="header-banda">
+  <header class="header-banda">
     <div class="contenedor">
-      <img src="logo.PNG" alt="MAL ESTADO" class="logo-principal">
+      <img src="logo.png" alt="MAL ESTADO" class="logo-principal">
       <p class="subtitulo">DEATHCORE / PATAGONIA ARGENTINA</p>
     </div>
   </header>
@@ -244,7 +243,6 @@
           <p>Mira el video oficial directamente aquí abajo.</p>
         </div>
 
-        <!-- REPRODUCTOR INTEGRADO DE YOUTUBE -->
         <div class="video-container">
           <iframe 
             src="https://www.youtube-nocookie.com/embed/sveaq3GOcXQ" 
