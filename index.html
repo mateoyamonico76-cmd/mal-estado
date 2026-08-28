@@ -34,11 +34,29 @@
           border-bottom: 2px solid #580016;
       }
 
-      .logo-principal {
+      logo-principal {
           max-width: 420px;
           width: 100%;
           height: auto;
-          filter: drop-shadow(0 0 10px #800020);
+          /* Aplicamos la animación 'pulso-bordo' de 3 segundos infinita */
+          animation: pulso-bordo 3s infinite ease-in-out;
+      }
+
+      /* DEFINICIÓN DE LA ANIMACIÓN DE RESPLANDOR BORDÓ */
+      @keyframes pulso-bordo {
+          0% {
+              filter: drop-shadow(0 0 5px #580016);
+              transform: scale(1);
+          }
+          50% {
+              filter: drop-shadow(0 0 20px #ff0040);
+              transform: scale(1.02); /* Crece sutilmente */
+          }
+          100% {
+              filter: drop-shadow(0 0 5px #580016);
+              transform: scale(1);
+          }
+      }
       }
 
       .subtitulo {
@@ -198,9 +216,9 @@
 <body>
 
   <!-- CABECERA PRINCIPAL -->
-  <header class="header-banda">
+ <header class="header-banda">
     <div class="contenedor">
-      <img src="https://i.ibb.co/L9Csk4B/86043.png" alt="MAL ESTADO" class="logo-principal">
+      <img src="logo.png" alt="MAL ESTADO" class="logo-principal">
       <p class="subtitulo">DEATHCORE / PATAGONIA ARGENTINA</p>
     </div>
   </header>
