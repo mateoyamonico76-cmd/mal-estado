@@ -145,13 +145,29 @@
           text-shadow: 0 0 8px #ff0040;
       }
 
-      /* BLOQUES DE SECCIÓN */
+      /* BLOQUES DE SECCIÓN CON ANIMACIÓN DE ENTRADA (FADE IN) */
       .seccion-bloque {
           margin: 40px 0;
           background-color: #0d0d0d;
           border: 1px solid #260009;
           padding: 30px;
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+          
+          /* Animación suave de entrada al cargar */
+          animation: aparecerBloque 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      /* DEFINICIÓN DEL EFECTO DE TRANSICIÓN */
+      @keyframes aparecerBloque {
+          0% {
+              opacity: 0;
+              transform: translateY(30px); /* Empieza 30px más abajo */
+          }
+          100% {
+              opacity: 1;
+              transform: translateY(0);    /* Sube suavemente a su posición final */
+          }
+      }
       }
 
       .titulo-seccion {
