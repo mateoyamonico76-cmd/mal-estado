@@ -164,6 +164,15 @@
           text-transform: uppercase;
       }
 
+      .subtitulo-bloque {
+          color: #ff0040;
+          font-size: 15px;
+          letter-spacing: 1px;
+          font-weight: bold;
+          margin: 25px 0 12px 0;
+          text-transform: uppercase;
+      }
+
       /* BIOGRAFÍA */
       .contenido-bio p {
           margin-bottom: 18px;
@@ -178,6 +187,52 @@
           border-left: 2px solid #580016;
           padding-left: 12px;
           margin: 20px 0;
+      }
+
+      /* REPRODUCTOR DE YOUTUBE RESPONSIVO */
+      .reproductor-card {
+          background: linear-gradient(135deg, #1f0008 0%, #0d0d0d 100%);
+          border: 1px solid #580016;
+          padding: 22px;
+          border-radius: 4px;
+      }
+
+      .badge-demo {
+          background-color: #800020;
+          color: #fff;
+          font-size: 11px;
+          font-weight: bold;
+          padding: 4px 10px;
+          letter-spacing: 1px;
+      }
+
+      .info-track h3 {
+          color: #ffffff;
+          margin-top: 10px;
+          font-size: 22px;
+      }
+
+      .info-track p {
+          color: #a0a0a0;
+          font-size: 14px;
+          margin-bottom: 18px;
+      }
+
+      .video-container {
+          position: relative;
+          padding-bottom: 56.25%;
+          height: 0;
+          overflow: hidden;
+          border: 1px solid #580016;
+          box-shadow: 0 0 10px rgba(128, 0, 32, 0.4);
+      }
+
+      .video-container iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
       }
 
       /* CONTACTO */
@@ -295,12 +350,32 @@
       </div>
     </section>
 
-    <!-- 2. SECCIÓN REPRODUCTOR DE SPOTIFY -->
+    <!-- 2. SECCIÓN MÚSICA (YOUTUBE + SPOTIFY) -->
     <section id="musica" class="seccion-bloque">
-      <h2 class="titulo-seccion">ESCUCHANOS EN SPOTIFY</h2>
+      <h2 class="titulo-seccion">MÚSICA / VIDEOS</h2>
       
-      <div style="margin-top: 20px; border-radius: 12px; overflow: hidden; background-color: #0d0d0d; border: 1px solid #38000e;">
-        <!-- REEMPLAZA TU_ID_DE_ARTISTA CON TU ENLACE/ID REAL DE SPOTIFY -->
+      <!-- VIDEO DE YOUTUBE -->
+      <div class="reproductor-card">
+        <div class="info-track">
+          <span class="badge-demo">ESTRENO</span>
+          <h3>MAL ESTADO — Plegaria</h3>
+          <p>Mira el video oficial directamente aquí abajo.</p>
+        </div>
+
+        <div class="video-container">
+          <iframe 
+            src="https://www.youtube-nocookie.com/embed/sveaq3GOcXQ" 
+            title="Mal Estado - Plegaria" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- REPRODUCTOR DE SPOTIFY -->
+      <h3 class="subtitulo-bloque">ESCUCHANOS EN SPOTIFY</h3>
+      <div style="border-radius: 12px; overflow: hidden; background-color: #0d0d0d; border: 1px solid #38000e;">
         <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/3l8fqYxrYI3MpdwcsgO5nK?utm_source=generator&si=3437ed92bb7844cd" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </section>
