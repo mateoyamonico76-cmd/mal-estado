@@ -6,7 +6,7 @@
     <title>MAL ESTADO ★ Tienda Oficial</title>
     
     <style>
-      /* ESTILOS GENERALES Y FUENTES */
+      /* ESTILOS GENERALES Y CONFIGURACIÓN DE FONDO GIF */
       * {
           box-sizing: border-box;
           margin: 0;
@@ -15,9 +15,10 @@
 
       body {
           background-color: #070707;
+          /* FONDO EN GIF CON CAPA OSCURA PARA ASEGURAR LEGIBILIDAD */
           background-image: 
               linear-gradient(rgba(10, 0, 3, 0.85), rgba(7, 7, 7, 0.90)),
-              url("fondo pagina.gif");
+              url("fondo pagina.gif"); /* Cambia a "fondo-shop.gif" si usas un GIF distinto */
           background-repeat: repeat;
           background-size: 450px auto;
           background-position: center top;
@@ -31,6 +32,7 @@
           padding: 0;
       }
 
+      /* COLUMNA CENTRAL */
       .contenedor {
           max-width: 900px;
           margin: 0 auto;
@@ -64,7 +66,7 @@
           100% { opacity: 0.70; }
       }
 
-      /* HEADER */
+      /* HEADER CON EFECTO GLITCH */
       .header-banda {
           padding: 40px 0 20px 0;
           text-align: center;
@@ -77,7 +79,17 @@
           height: auto;
           display: block;
           margin: 0 auto;
+          animation: glitch-anim 3s infinite linear alternate-reverse;
           filter: drop-shadow(0 0 10px #800020);
+      }
+
+      @keyframes glitch-anim {
+          0% { transform: translate(0); filter: drop-shadow(0 0 10px #800020); }
+          92% { transform: translate(0); filter: drop-shadow(0 0 10px #800020); }
+          93% { transform: translate(-3px, 2px); filter: drop-shadow(-3px 0 #ff0040) drop-shadow(3px 0 #00ffff); }
+          95% { transform: translate(3px, -2px); filter: drop-shadow(3px 0 #ff0040) drop-shadow(-3px 0 #00ffff); }
+          97% { transform: translate(-2px, -1px); filter: drop-shadow(-2px 0 #ff0040); }
+          100% { transform: translate(0); filter: drop-shadow(0 0 12px #ff0040); }
       }
 
       .subtitulo {
@@ -115,7 +127,7 @@
           text-shadow: 0 0 8px #ff0040;
       }
 
-      /* GRILLA DE PRODUCTOS */
+      /* TARJETAS Y GRILLA DE PRODUCTOS */
       .seccion-bloque {
           margin: 40px 0;
           background-color: #0d0d0d;
@@ -142,9 +154,9 @@
       }
 
       .card-producto {
-          background-color: #120206;
+          background: linear-gradient(135deg, #120206 0%, #080808 100%);
           border: 1px solid #38000e;
-          padding: 15px;
+          padding: 20px;
           text-align: center;
           transition: transform 0.3s ease, border-color 0.3s ease;
       }
@@ -152,21 +164,29 @@
       .card-producto:hover {
           transform: translateY(-5px);
           border-color: #800020;
-          box-shadow: 0 0 15px rgba(128, 0, 32, 0.4);
+          box-shadow: 0 0 15px rgba(128, 0, 32, 0.5);
       }
 
-      .img-producto {
+      /* CONTENEDOR TEMPORAL PARA CUANDO NO HAY FOTOS */
+      .box-foto-placeholder {
           width: 100%;
-          height: 250px;
-          object-fit: cover;
-          border: 1px solid #260009;
-          background-color: #000;
+          height: 240px;
+          background-color: #050505;
+          border: 1px dashed #580016;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #800020;
+          font-size: 13px;
+          font-weight: bold;
+          letter-spacing: 2px;
+          text-transform: uppercase;
       }
 
       .nombre-producto {
           color: #ffffff;
           font-size: 18px;
-          margin: 12px 0 5px 0;
+          margin: 15px 0 5px 0;
           font-weight: bold;
       }
 
@@ -174,26 +194,27 @@
           color: #ff0040;
           font-size: 16px;
           font-weight: bold;
-          margin-bottom: 12px;
+          margin-bottom: 15px;
       }
 
       .btn-comprar {
           display: inline-block;
           width: 100%;
-          padding: 10px 0;
+          padding: 12px 0;
           background-color: #580016;
           color: #ffffff;
           text-decoration: none;
           font-weight: bold;
-          font-size: 13px;
-          letter-spacing: 1px;
+          font-size: 12px;
+          letter-spacing: 2px;
           border: 1px solid #800020;
           transition: all 0.3s ease;
       }
 
       .btn-comprar:hover {
           background-color: #800020;
-          box-shadow: 0 0 10px #ff0040;
+          box-shadow: 0 0 12px #ff0040;
+          color: #fff;
       }
 
       /* FOOTER */
@@ -205,7 +226,7 @@
           border-top: 1px solid #1a0007;
       }
 
-      /* ADAPTACIÓN MÓVIL */
+      /* ADAPTACIÓN A CELULARES */
       @media (max-width: 768px) {
           .menu-navegacion {
               flex-direction: column;
@@ -225,15 +246,13 @@
 </head>
 <body>
 
-  <!-- CABECERA -->
   <header class="header-banda">
     <div class="contenedor">
       <img src="logo.PNG" alt="MAL ESTADO" class="logo-principal">
-      <p class="subtitulo">TIENDA OFICIAL</p>
+      <p class="subtitulo">TIENDA OFICIAL / MERCH</p>
     </div>
   </header>
 
-  <!-- NAVEGACIÓN -->
   <nav class="menu-navegacion">
     <a href="index.html#bio">BIOGRAFÍA</a>
     <a href="index.html#musica">MÚSICA</a>
@@ -243,33 +262,30 @@
 
   <main class="contenedor">
     <section class="seccion-bloque">
-      <h2 class="titulo-seccion">MERCHANDISING</h2>
-      <p style="margin-bottom: 20px;">Indumentaria oficial de la banda. Envíos a todo el país.</p>
+      <h2 class="titulo-seccion">PRODUCTOS DISPONIBLES</h2>
+      <p style="margin-bottom: 25px; color: #a0a0a0;">Envíos a todo el país. Consultas directas por pedido.</p>
 
       <div class="grilla-tienda">
         
-        <!-- PRODUCTO 1 -->
         <div class="card-producto">
-          <img src="remera.jpg" alt="Remera Plegaria" class="img-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
           <h3 class="nombre-producto">Remera «Plegaria»</h3>
           <p class="precio-producto">$18.000 ARS</p>
-          <a href="https://wa.me/5492804000000?text=Hola,%20quiero%20comprar%20la%20Remera%20Plegaria" target="_blank" class="btn-comprar">COMPRAR POR WHATSAPP</a>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
         </div>
 
-        <!-- PRODUCTO 2 -->
         <div class="card-producto">
-          <img src="buzo.jpg" alt="Buzo Mal Estado" class="img-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
           <h3 class="nombre-producto">Buzo Oversize</h3>
           <p class="precio-producto">$35.000 ARS</p>
-          <a href="https://wa.me/5492804000000?text=Hola,%20quiero%20comprar%20el%20Buzo%20Oversize" target="_blank" class="btn-comprar">COMPRAR POR WHATSAPP</a>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
         </div>
 
-        <!-- PRODUCTO 3 -->
         <div class="card-producto">
-          <img src="gorra.jpg" alt="Gorra Mal Estado" class="img-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
           <h3 class="nombre-producto">Gorra Subterránea</h3>
           <p class="precio-producto">$12.000 ARS</p>
-          <a href="https://wa.me/5492804000000?text=Hola,%20quiero%20comprar%20la%20Gorra" target="_blank" class="btn-comprar">COMPRAR POR WHATSAPP</a>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
         </div>
 
       </div>
