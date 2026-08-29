@@ -14,22 +14,24 @@
       }
 
      body {
+          body {
           background-color: #070707;
-          /* COMBINACIÓN DE CAPAS PARA EFECTO VHS:
-             Capa 1: Fondo oscuro transparente (bordo/negro)
-             Capa 2: Líneas horizontales de TV/VHS (Scanlines)
-             Capa 3: Tu foto de fondo (fondo.jpg)
-          */
+          
+          /* Capa oscura semitransparente + tu GIF/Foto de fondo */
           background-image: 
-              linear-gradient(rgba(10, 0, 3, 0.82), rgba(7, 7, 7, 0.90)),
-              repeating-linear-gradient(
-                  0deg,
-                  rgba(0, 0, 0, 0.5),
-                  rgba(0, 0, 0, 0.5) 1px,
-                  transparent 1px,
-                  transparent 3px
-              ),
-              url('glitch montreal GIF by Death Orgone.gif');
+              linear-gradient(rgba(10, 0, 3, 0.85), rgba(7, 7, 7, 0.90)),
+              url('glitch montreal GIF by Death Orgone.gif'); /* Cambia 'fondo.gif' por el nombre exacto de tu archivo */
+          
+          /* PROPIEDADES PARA EVITAR QUE SE REPITA Y QUE OCUPE TODA LA PANTALLA */
+          background-repeat: no-repeat;  /* Evita que se multiplique en cuadros pequeños */
+          background-size: cover;        /* Estira la imagen para cubrir toda la pantalla */
+          background-position: center;   /* Centra la imagen en la pantalla */
+          background-attachment: fixed;  /* Mantiene el fondo fijo al hacer scroll */
+
+          color: #d1d1d1;
+          font-family: 'Trebuchet MS', Arial, sans-serif;
+          line-height: 1.6;
+      }
         
       }
 
