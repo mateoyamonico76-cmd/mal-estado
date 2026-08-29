@@ -11,6 +11,60 @@
           box-sizing: border-box;
           margin: 0;
           padding: 0;
+          /* AJUSTES RESPONSIVOS PARA CELULARES */
+      @media (max-width: 768px) {
+          body {
+              font-size: 15px; /* Tamaño de letra adaptado a pantallas chicas */
+          }
+
+          .contenedor {
+              padding: 0 12px; /* Reduce los márgenes laterales */
+          }
+
+          /* Adaptación del Logo en móviles */
+          .logo-principal {
+              max-width: 240px;
+          }
+
+          .subtitulo {
+              font-size: 11px;
+              letter-spacing: 2px;
+          }
+
+          /* Menú en columna para que no se amontone en pantalla chica */
+          .menu-navegacion {
+              flex-direction: column;
+              align-items: center;
+          }
+
+          .menu-navegacion a {
+              padding: 10px 0;
+              width: 100%;
+              text-align: center;
+              border-bottom: 1px solid #1f0008;
+          }
+
+          /* Ajuste de espacios dentro de las cajas */
+          .seccion-bloque {
+              padding: 18px 14px;
+              margin: 20px 0;
+          }
+
+          .titulo-seccion {
+              font-size: 18px;
+          }
+
+          .contenido-bio p {
+              font-size: 15px;
+              text-align: left; /* En celular se lee mejor alineado a la izquierda */
+          }
+
+          /* Tabla de shows scrollable horizontalmente en pantallas muy angostas */
+          .tabla-shows th, .tabla-shows td {
+              padding: 10px 8px;
+              font-size: 13px;
+          }
+      }
       }
 
       body {
