@@ -13,22 +13,60 @@
           padding: 0;
       }
 
-    body {
-          background-color: #070707; /* Fondo negro de base */
-          
-          /* Capa oscura semitransparente sobre tu fondo */
+    /* ESTILO BASE DEL CUERPO CON TU GIF DE FONDO */
+      body {
+          background-color: #070707;
           background-image: 
               linear-gradient(rgba(10, 0, 3, 0.85), rgba(7, 7, 7, 0.90)),
-              url("fondo pagina 1.gif"); /* Revisa que en GitHub se llame exacto con espacio */
-          
+              url("fondo pagina 1.gif");
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center center;
           background-attachment: fixed;
-
           color: #d1d1d1;
           font-family: 'Trebuchet MS', Arial, sans-serif;
           line-height: 1.6;
+          position: relative;
+          overflow-x: hidden;
+      }
+
+      /* CAPA SUPERPUESTA DE DISTORSIÓN Y LÍNEAS DE ESCANEO VHS */
+      body::after {
+          content: "";
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          /* Crea las líneas horizontales tipo televisor tubo */
+          background: linear-gradient(
+              rgba(18, 16, 16, 0) 50%, 
+              rgba(0, 0, 0, 0.4) 50%
+          ), linear-gradient(
+              90deg,
+              rgba(255, 0, 0, 0.03),
+              rgba(0, 255, 0, 0.01),
+              rgba(0, 0, 255, 0.03)
+          );
+          background-size: 100% 4px, 6px 100%;
+          pointer-events: none; /* Permite hacer clic en la página normalmente */
+          z-index: 2;
+          /* Animación de parpadeo de cinta VHS */
+          animation: vhs-flicker 0.15s infinite;
+      }
+
+      /* ANIMACIÓN DE INTERFERENCIA Y PARPADEO VHS */
+      @keyframes vhs-flicker {
+          0% {
+              opacity: 0.75;
+          }
+          50% {
+              opacity: 0.90;
+          }
+          100% {
+              opacity: 0.80;
+          }
+      }
       }
 
       .contenedor {
