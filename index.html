@@ -7,6 +7,10 @@
     
     <style>
       /* ESTILOS GENERALES Y FUENTES AGRANDADAS */
+        @font-face {
+    font-family: 'FuenteEnunciados';
+    src: url('fuente enunciados.otf');
+}
       * {
           box-sizing: border-box;
           margin: 0;
@@ -170,14 +174,50 @@
       }
       }
 
+      /* ENUNCIADOS / TÍTULOS CON FUENTE PROPIA Y EFECTO GLITCH */
       .titulo-seccion {
+          font-family: 'FuenteEnunciados', 'Trebuchet MS', sans-serif;
+          font-size: 28px;
           color: #ffffff;
           border-left: 4px solid #800020;
           padding-left: 14px;
-          font-size: 22px;
-          letter-spacing: 2px;
+          letter-spacing: 3px;
           margin-bottom: 22px;
           text-transform: uppercase;
+          display: inline-block;
+          
+          /* EFECTO GLITCH EN TEXTO */
+          animation: glitch-texto 4s infinite linear alternate-reverse;
+          text-shadow: 0 0 8px rgba(255, 0, 64, 0.6);
+      }
+
+      /* ANIMACIÓN GLITCH PARA TEXTO */
+      @keyframes glitch-texto {
+          0% {
+              text-shadow: 2px 0 #ff0040, -2px 0 #00ffff;
+              transform: translate(0);
+          }
+          90% {
+              text-shadow: 2px 0 #ff0040, -2px 0 #00ffff;
+              transform: translate(0);
+          }
+          92% {
+              text-shadow: -3px 0 #ff0040, 3px 0 #00ffff;
+              transform: translate(-2px, 1px);
+          }
+          94% {
+              text-shadow: 3px 0 #ff0040, -3px 0 #00ffff;
+              transform: translate(2px, -1px);
+          }
+          96% {
+              text-shadow: -1px 0 #ff0040, 1px 0 #00ffff;
+              transform: translate(0);
+          }
+          100% {
+              text-shadow: 2px 0 #ff0040, -2px 0 #00ffff;
+              transform: translate(0);
+          }
+      }
       }
 
       .subtitulo-bloque {
