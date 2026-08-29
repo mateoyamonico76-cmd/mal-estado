@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAL ESTADO ★ Tienda Oficial</title>
+    
+    <style>
+      /* ESTILOS GENERALES Y FUENTES */
+      * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+      }
+
+      body {
+          background-color: #070707;
+          background-image: 
+              linear-gradient(rgba(10, 0, 3, 0.85), rgba(7, 7, 7, 0.90)),
+              url("fondo pagina.gif");
+          background-repeat: repeat;
+          background-size: 450px auto;
+          background-position: center top;
+          background-attachment: fixed;
+          
+          color: #d1d1d1;
+          font-family: 'Trebuchet MS', Arial, sans-serif;
+          font-size: 16px;
+          line-height: 1.8;
+          margin: 0;
+          padding: 0;
+      }
+
+      .contenedor {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 20px;
+          position: relative;
+          z-index: 1;
+      }
+
+      /* CAPA SUPERPUESTA DE EFECTO VHS */
+      body::after {
+          content: "";
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+              rgba(18, 16, 16, 0) 50%, 
+              rgba(0, 0, 0, 0.45) 50%
+          );
+          background-size: 100% 4px;
+          pointer-events: none;
+          z-index: -1;
+          opacity: 0.7;
+          animation: vhs-flicker 0.15s infinite;
+      }
+
+      @keyframes vhs-flicker {
+          0% { opacity: 0.65; }
+          50% { opacity: 0.80; }
+          100% { opacity: 0.70; }
+      }
+
+      /* HEADER */
+      .header-banda {
+          padding: 40px 0 20px 0;
+          text-align: center;
+          border-bottom: 2px solid #580016;
+      }
+
+      .logo-principal {
+          max-width: 320px;
+          width: 80%;
+          height: auto;
+          display: block;
+          margin: 0 auto;
+          filter: drop-shadow(0 0 10px #800020);
+      }
+
+      .subtitulo {
+          color: #800020;
+          font-size: 13px;
+          letter-spacing: 4px;
+          font-weight: bold;
+          margin-top: 15px;
+      }
+
+      /* NAVEGACIÓN */
+      .menu-navegacion {
+          display: flex;
+          justify-content: center;
+          background-color: #0d0d0d;
+          border-bottom: 1px solid #33000d;
+          position: sticky;
+          top: 0;
+          z-index: 100;
+      }
+
+      .menu-navegacion a {
+          color: #ffffff;
+          text-decoration: none;
+          padding: 16px 26px;
+          font-weight: bold;
+          font-size: 14px;
+          letter-spacing: 2px;
+          transition: all 0.3s ease;
+      }
+
+      .menu-navegacion a:hover, .menu-navegacion a.activo {
+          background-color: #580016;
+          color: #ffffff;
+          text-shadow: 0 0 8px #ff0040;
+      }
+
+      /* GRILLA DE PRODUCTOS */
+      .seccion-bloque {
+          margin: 40px 0;
+          background-color: #0d0d0d;
+          border: 1px solid #260009;
+          padding: 30px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+      }
+
+      .titulo-seccion {
+          color: #ffffff;
+          border-left: 4px solid #800020;
+          padding-left: 14px;
+          font-size: 22px;
+          letter-spacing: 2px;
+          margin-bottom: 22px;
+          text-transform: uppercase;
+      }
+
+      .grilla-tienda {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 25px;
+          margin-top: 20px;
+      }
+
+      .card-producto {
+          background-color: #120206;
+          border: 1px solid #38000e;
+          padding: 15px;
+          text-align: center;
+          transition: transform 0.3s ease, border-color 0.3s ease;
+      }
+
+      .card-producto:hover {
+          transform: translateY(-5px);
+          border-color: #800020;
+          box-shadow: 0 0 15px rgba(128, 0, 32, 0.4);
+      }
+
+      .img-producto {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          border: 1px solid #260009;
+          background-color: #000;
+      }
+
+      .nombre-producto {
+          color: #ffffff;
+          font-size: 18px;
+          margin: 12px 0 5px 0;
+          font-weight: bold;
+      }
+
+      .precio-producto {
+          color: #ff0040;
+          font-size: 16px;
+          font-weight: bold;
+          margin-bottom: 12px;
+      }
+
+      .btn-comprar {
+          display: inline-block;
+          width: 100%;
+          padding: 10px 0;
+          background-color: #580016;
+          color: #ffffff;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 13px;
+          letter-spacing: 1px;
+          border: 1px solid #800020;
+          transition: all 0.3s ease;
+      }
+
+      .btn-comprar:hover {
+          background-color: #800020;
+          box-shadow: 0 0 10px #ff0040;
+      }
+
+      /* FOOTER */
+      .footer-banda {
+          text-align: center;
+          padding: 30px 0;
+          font-size: 12px;
+          color: #555;
+          border-top: 1px solid #1a0007;
+      }
+
+      /* ADAPTACIÓN MÓVIL */
+      @media (max-width: 768px) {
+          .menu-navegacion {
+              flex-direction: column;
+              align-items: center;
+          }
+          .menu-navegacion a {
+              padding: 10px 0;
+              width: 100%;
+              text-align: center;
+              border-bottom: 1px solid #1f0008;
+          }
+          .grilla-tienda {
+              grid-template-columns: 1fr;
+          }
+      }
+    </style>
+</head>
+<body>
+
+  <!-- CABECERA -->
+  <header class="header-banda">
+    <div class="contenedor">
+      <img src="logo.PNG" alt="MAL ESTADO" class="logo-principal">
+      <p class="subtitulo">TIENDA OFICIAL</p>
+    </div>
+  </header>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="menu-navegacion">
+    <a href="index.html#bio">BIOGRAFÍA</a>
+    <a href="index.html#musica">MÚSICA</a>
+    <a href="shop.html" class="activo">SHOP</a>
+    <a href="index.html#contacto">CONTACTO</a>
+  </nav>
+
+  <main class="contenedor">
+    <section class="seccion-bloque">
+      <h2 class="titulo-seccion">MERCHANDISING</h2>
+      <p style="margin-bottom: 20px;">Indumentaria oficial de la banda. Envíos a todo el país.</p>
+
+      <div class="grilla-tienda">
+        
+        <!-- PRODUCTO 1 -->
+        <div class="card-producto">
+          <img src="remera.jpg" alt="Remera Plegaria" class="img-producto">
+          <h3 class="nombre-producto">Remera «Plegaria»</h3>
+          <p class="precio-producto">$18.000 ARS</p>
+          <a href="https://wa.me/5492804000000?text=Hola,%20quiero%20comprar%20la%20Remera%20Plegaria" target="_blank" class="btn-comprar">COMPRAR POR WHATSAPP</a>
+        </div>
+
+        <!-- PRODUCTO 2 -->
+        <div class="card-producto">
+          <img src="buzo.jpg" alt="Buzo Mal Estado" class="img-producto">
+          <h3 class="nombre-producto">Buzo Oversize</h3>
+          <p class="precio-producto">$35.000 ARS</p>
+          <a href="https://wa.me/5492804000000?text=Hola,%20quiero%20comprar%20el%20Buzo%20Oversize" target="_blank" class="btn-comprar">COMPRAR POR WHATSAPP</a>
+        </div>
+
+        <!-- PRODUCTO 3 -->
+        <div class="card-producto">
+          <img src="gorra.jpg" alt="Gorra Mal Estado" class="img-producto">
+          <h3 class="nombre-producto">Gorra Subterránea</h3>
+          <p class="precio-producto">$12.000 ARS</p>
+          <a href="https://wa.me/5492804000000?text=Hola,%20quiero%20comprar%20la%20Gorra" target="_blank" class="btn-comprar">COMPRAR POR WHATSAPP</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-banda">
+    <p>© MAL ESTADO — Todos los derechos reservados</p>
+  </footer>
+
+</body>
+</html>
