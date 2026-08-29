@@ -6,40 +6,39 @@
     <title>MAL ESTADO ★ Sitio Oficial</title>
     
     <style>
-      /* ESTILOS GENERALES */
+      /* ESTILOS GENERALES Y FUENTES AGRANDADAS */
       * {
           box-sizing: border-box;
           margin: 0;
           padding: 0;
       }
 
-     /* CUERPO PRINCIPAL CON EL GIF DE FONDO MÁS CHICO */
-     /* ESTILOS DEL CUERPO Y GIF DE FONDO */
       body {
           background-color: #070707;
           background-image: 
               linear-gradient(rgba(10, 0, 3, 0.85), rgba(7, 7, 7, 0.90)),
               url("fondo pagina 1.gif");
           background-repeat: repeat;
-          background-size: 450px auto; /* Controla la escala del GIF del fondo */
+          background-size: 450px auto;
           background-position: center top;
           background-attachment: fixed;
           
           color: #d1d1d1;
           font-family: 'Trebuchet MS', Arial, sans-serif;
-          line-height: 1.6;
+          font-size: 16px; /* Letra general más grande */
+          line-height: 1.8;
           margin: 0;
           padding: 0;
       }
 
-      /* COLUMNA CENTRAL (RESTRINGE EL ANCHO Y CENTRA TODO EL CONTENIDO) */
+      /* COLUMNA CENTRAL CENTRADA */
       .contenedor {
-          max-width: 900px; /* Ancho de la columna central */
-          margin: 0 auto;   /* Centra la columna dejando ver el fondo a los lados */
+          max-width: 900px;
+          margin: 0 auto;
           padding: 0 20px;
       }
 
-      /* CAPA SUPERPUESTA VHS (SCANLINES) */
+      /* CAPA SUPERPUESTA DE EFECTO VHS (SCANLINES) */
       body::after {
           content: "";
           position: fixed;
@@ -63,35 +62,8 @@
           50% { opacity: 0.80; }
           100% { opacity: 0.70; }
       }
-      }
 
-      @keyframes vhs-flicker {
-          0% { opacity: 0.65; }
-          50% { opacity: 0.80; }
-          100% { opacity: 0.70; }
-      }
-
-      /* ANIMACIÓN DE INTERFERENCIA Y PARPADEO VHS */
-      @keyframes vhs-flicker {
-          0% {
-              opacity: 0.75;
-          }
-          50% {
-              opacity: 0.90;
-          }
-          100% {
-              opacity: 0.80;
-          }
-      }
-      }
-
-      .contenedor {
-          max-width: 900px;
-          margin: 0 auto;
-          padding: 0 20px;
-      }
-
-      /* HEADER Y LOGO CON EFECTO GLITCH */
+      /* HEADER Y LOGO CON GLITCH */
       .header-banda {
           padding: 40px 0 20px 0;
           text-align: center;
@@ -119,67 +91,32 @@
           animation: glitch-anim-hover 0.2s infinite ease-in-out;
       }
 
-      /* ANIMACIÓN GLITCH DE BASE (TENSION / DISTORSIÓN DE IMAGEN) */
       @keyframes glitch-anim {
-          0% {
-              transform: translate(0);
-              filter: drop-shadow(0 0 10px #800020);
-          }
-          92% {
-              transform: translate(0);
-              filter: drop-shadow(0 0 10px #800020);
-          }
-          93% {
-              transform: translate(-3px, 2px);
-              filter: drop-shadow(-3px 0 #ff0040) drop-shadow(3px 0 #00ffff);
-          }
-          95% {
-              transform: translate(3px, -2px);
-              filter: drop-shadow(3px 0 #ff0040) drop-shadow(-3px 0 #00ffff);
-          }
-          97% {
-              transform: translate(-2px, -1px);
-              filter: drop-shadow(-2px 0 #ff0040);
-          }
-          100% {
-              transform: translate(0);
-              filter: drop-shadow(0 0 12px #ff0040);
-          }
+          0% { transform: translate(0); filter: drop-shadow(0 0 10px #800020); }
+          92% { transform: translate(0); filter: drop-shadow(0 0 10px #800020); }
+          93% { transform: translate(-3px, 2px); filter: drop-shadow(-3px 0 #ff0040) drop-shadow(3px 0 #00ffff); }
+          95% { transform: translate(3px, -2px); filter: drop-shadow(3px 0 #ff0040) drop-shadow(-3px 0 #00ffff); }
+          97% { transform: translate(-2px, -1px); filter: drop-shadow(-2px 0 #ff0040); }
+          100% { transform: translate(0); filter: drop-shadow(0 0 12px #ff0040); }
       }
 
-      /* ANIMACIÓN GLITCH AGRESIVA AL PASAR EL MOUSE (HOVER) */
       @keyframes glitch-anim-hover {
-          0% {
-              transform: translate(0);
-              filter: drop-shadow(-4px 0 #ff0040) drop-shadow(4px 0 #00ffff);
-          }
-          25% {
-              transform: translate(-5px, 3px) skewX(5deg);
-              filter: drop-shadow(5px -2px #ff0040);
-          }
-          50% {
-              transform: translate(4px, -3px) skewX(-5deg);
-              filter: drop-shadow(-5px 2px #00ffff);
-          }
-          75% {
-              transform: translate(-2px, 2px);
-              filter: drop-shadow(3px 0 #ff0040);
-          }
-          100% {
-              transform: translate(0);
-              filter: drop-shadow(-4px 0 #ff0040) drop-shadow(4px 0 #00ffff);
-          }
+          0% { transform: translate(0); filter: drop-shadow(-4px 0 #ff0040) drop-shadow(4px 0 #00ffff); }
+          25% { transform: translate(-5px, 3px) skewX(5deg); filter: drop-shadow(5px -2px #ff0040); }
+          50% { transform: translate(4px, -3px) skewX(-5deg); filter: drop-shadow(-5px 2px #00ffff); }
+          75% { transform: translate(-2px, 2px); filter: drop-shadow(3px 0 #ff0040); }
+          100% { transform: translate(0); filter: drop-shadow(-4px 0 #ff0040) drop-shadow(4px 0 #00ffff); }
       }
 
       .subtitulo {
           color: #800020;
-          font-size: 12px;
+          font-size: 13px;
           letter-spacing: 4px;
           font-weight: bold;
           margin-top: 15px;
       }
 
-      /* NAVEGACIÓN */
+      /* NAVEGACIÓN CON NOMBRES Y ORDEN REAJUSTADO */
       .menu-navegacion {
           display: flex;
           justify-content: center;
@@ -193,9 +130,9 @@
       .menu-navegacion a {
           color: #ffffff;
           text-decoration: none;
-          padding: 15px 25px;
+          padding: 16px 26px;
           font-weight: bold;
-          font-size: 13px;
+          font-size: 14px;
           letter-spacing: 2px;
           transition: all 0.3s ease;
       }
@@ -211,47 +148,63 @@
           margin: 40px 0;
           background-color: #0d0d0d;
           border: 1px solid #260009;
-          padding: 25px;
+          padding: 30px;
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
       }
 
       .titulo-seccion {
           color: #ffffff;
           border-left: 4px solid #800020;
-          padding-left: 12px;
-          font-size: 18px;
+          padding-left: 14px;
+          font-size: 22px; /* Título de sección agrandado */
           letter-spacing: 2px;
-          margin-bottom: 20px;
+          margin-bottom: 22px;
           text-transform: uppercase;
+      }
+
+      /* BIOGRAFÍA CON LETRA MÁS GRANDE Y LEGIBLE */
+      .contenido-bio p {
+          margin-bottom: 18px;
+          text-align: justify;
+          font-size: 16.5px;
+          color: #dcdcdc;
+      }
+
+      .contenido-bio p.destacado {
+          font-weight: bold;
+          color: #ffffff;
+          border-left: 2px solid #580016;
+          padding-left: 12px;
+          margin: 20px 0;
       }
 
       /* SECCIÓN REPRODUCTOR */
       .reproductor-card {
           background: linear-gradient(135deg, #1f0008 0%, #0d0d0d 100%);
           border: 1px solid #580016;
-          padding: 20px;
+          padding: 22px;
           border-radius: 4px;
       }
 
       .badge-demo {
           background-color: #800020;
           color: #fff;
-          font-size: 10px;
+          font-size: 11px;
           font-weight: bold;
-          padding: 3px 8px;
+          padding: 4px 10px;
           letter-spacing: 1px;
       }
 
       .info-track h3 {
           color: #ffffff;
-          margin-top: 8px;
-          font-size: 20px;
+          margin-top: 10px;
+          font-size: 22px;
       }
 
       .info-track p {
           color: #a0a0a0;
-          font-size: 12px;
-          margin-bottom: 15px;
+          font-size: 14px;
+          margin-bottom: 18px;
       }
 
       /* CONTENEDOR RESPONSIVO PARA YOUTUBE */
@@ -272,13 +225,6 @@
           height: 100%;
       }
 
-      /* BIOGRAFÍA */
-      .contenido-bio p {
-          margin-bottom: 15px;
-          text-align: justify;
-          font-size: 14px;
-      }
-
       /* TABLA DE SHOWS */
       .tabla-shows {
           width: 100%;
@@ -287,20 +233,21 @@
       }
 
       .tabla-shows th, .tabla-shows td {
-          padding: 12px;
+          padding: 14px;
           text-align: left;
           border-bottom: 1px solid #260009;
+          font-size: 15px;
       }
 
       .tabla-shows th {
           color: #800020;
-          font-size: 12px;
+          font-size: 13px;
           letter-spacing: 1px;
       }
 
       .btn-show {
           color: #888;
-          font-size: 11px;
+          font-size: 12px;
           font-weight: bold;
       }
 
@@ -320,7 +267,7 @@
       .footer-banda {
           text-align: center;
           padding: 30px 0;
-          font-size: 11px;
+          font-size: 12px;
           color: #555;
           border-top: 1px solid #1a0007;
       }
@@ -332,7 +279,7 @@
   <header class="header-banda">
     <div class="contenedor">
       <div class="glitch-wrapper">
-        <img src="logo.PNG" alt="MAL ESTADO" class="logo-principal">
+        <img src="logo.png" alt="MAL ESTADO" class="logo-principal">
       </div>
       <p class="subtitulo">DEATHCORE / PATAGONIA ARGENTINA</p>
     </div>
@@ -340,28 +287,40 @@
 
   <!-- NAVEGACIÓN -->
   <nav class="menu-navegacion">
-    <a href="#musica">MÚSICA</a>
     <a href="#bio">BIOGRAFÍA</a>
+    <a href="#musica">MÚSICA</a>
     <a href="#shows">FECHAS</a>
     <a href="#contacto">CONTACTO</a>
   </nav>
 
- <main class="contenedor">
+  <main class="contenedor">
     
-    <!-- 1. SECCIÓN BIOGRAFÍA (ARRIBA) -->
+    <!-- 1. SECCIÓN BIOGRAFÍA (NUEVA Y ARRIBA) -->
     <section id="bio" class="seccion-bloque">
       <h2 class="titulo-seccion">SOBRE LA BANDA</h2>
       <div class="contenido-bio">
         <p>
-            <b>MAL ESTADO</b> nace desde las entrañas del sur de Argentina (Chubut), bajo el frío, la distancia y el ruido. Somos una banda impulsada por la era dorada del Deathcore de mediados de los 2000, alimentada por la violencia sonora, los breakdowns aplastantes y el sonido crudo de referentes como <i>Suicide Silence</i>, los primeros tiempos de <i>Bring Me The Horizon</i> y <i>Chelsea Grin</i>.
+            Hay un punto de quiebre en el dolor donde la resignación se transforma en furia. Ocurre cuando las promesas se rompen, cuando los lazos familiares se tensan hasta quebrarse y cuando las amistades o los afectos dejan más cicatrices que refugio. En ese instante, mirar alrededor solo devuelve el silencio frío del sur.
+        </p>
+        <p class="destacado">
+            De esa grieta profunda nace Mal Estado.
         </p>
         <p>
-            No venimos a encajar ni a mostrar una fachada limpia. <b>Mal Estado</b> es un canal de catarsis colectiva: la idea es conectar de frente con toda esa gente que se siente rota, alienada o en la oscuridad. No estás solo en el abismo; aquí nos acompañamos gritando más fuerte.
+            Originarios de la provincia de Chubut, en la Patagonia argentina, la banda no surgió como un proyecto planificado ni como una simple ambición artística, sino como un mecanismo de supervivencia. Crecidos bajo la influencia estética y sonora de la era Myspace de mediados de los 2000 —aquel periodo donde la vulnerabilidad se exponía en crudo a través de guitarras lacerantes, voces al límite y habitaciones a oscuras—, el grupo encontró en la distorsión el único idioma capaz de traducir la soledad, el despecho y la rabia acumulada.
+        </p>
+        <p>
+            Su carta de presentación, «Plegaria», es el reflejo de esta filosofía. La canción no busca ser una invocación piadosa, sino el reclamo visceral de quien se siente abandonado hasta por lo divino. Grabarla no significó un cierre ni una curación instantánea; fue romper un dique. Fue abrir una compuerta que llevaba años trabada bajo el peso del aislamiento para dejar salir el dolor sin filtros ni producción impostada.
+        </p>
+        <p>
+            Con una estética desalineada, genuina y distante de las modas pulcritud de la escena actual, Mal Estado habitan la contradicción de la condición humana: conocen el peso de los excesos y el intento de anestesiar la mente cuando la realidad se vuelve insoportable, pero rechazan la indiferencia. No se presentan como ejemplos de superación ni pretenden ofrecer lecciones de vida desde un altar. Son compañeros de trinchera.
+        </p>
+        <p>
+            Mal Estado es la mano extendida en la penumbra. Una señal de humo y un puerto de desembarco para los desanimados, los incomprendidos y los que cargan con sus heridas en silencio. Es la certeza de que, incluso ante el silencio más absoluto, no están solos.
         </p>
       </div>
     </section>
 
-    <!-- 2. SECCIÓN REPRODUCTOR DE YOUTUBE (ABAJO DE LA BIO) -->
+    <!-- 2. SECCIÓN REPRODUCTOR DE YOUTUBE -->
     <section id="musica" class="seccion-bloque">
       <h2 class="titulo-seccion">NUEVO MATERIAL / VIDEO OFICIAL</h2>
       
@@ -409,7 +368,7 @@
     <section id="contacto" class="seccion-bloque">
       <h2 class="titulo-seccion">CONTACTO</h2>
       <p style="text-align: center;">Para fechas, prensa o producción independiente:</p>
-      <p style="text-align: center; font-size: 18px; margin-top: 10px;">
+      <p style="text-align: center; font-size: 20px; margin-top: 10px;">
         <a href="mailto:contacto@malestado.com" class="link-contacto">contacto@malestado.com</a>
       </p>
     </section>
