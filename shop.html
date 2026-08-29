@@ -6,7 +6,7 @@
     <title>MAL ESTADO ★ Tienda Oficial</title>
     
     <style>
-      /* ESTILOS GENERALES Y CONFIGURACIÓN DE FONDO GIF */
+      /* ESTILOS GENERALES Y FONDO GIF */
       * {
           box-sizing: border-box;
           margin: 0;
@@ -15,10 +15,9 @@
 
       body {
           background-color: #070707;
-          /* FONDO EN GIF CON CAPA OSCURA PARA ASEGURAR LEGIBILIDAD */
           background-image: 
               linear-gradient(rgba(10, 0, 3, 0.85), rgba(7, 7, 7, 0.90)),
-              url("fondo shop.gif"); /* Cambia a "fondo-shop.gif" si usas un GIF distinto */
+              url("fondo shop.gif");
           background-repeat: repeat;
           background-size: 450px auto;
           background-position: center top;
@@ -32,7 +31,6 @@
           padding: 0;
       }
 
-      /* COLUMNA CENTRAL */
       .contenedor {
           max-width: 900px;
           margin: 0 auto;
@@ -64,6 +62,35 @@
           0% { opacity: 0.65; }
           50% { opacity: 0.80; }
           100% { opacity: 0.70; }
+      }
+
+      /* LOGO FLOTANTE LATERAL QUE TE SIGUE AL SCROLLEAR */
+      .logo-flotante-lateral {
+          position: fixed;
+          top: 35%;
+          left: 20px;
+          z-index: 99;
+          width: 140px;
+          padding: 10px;
+          background: rgba(13, 13, 13, 0.85);
+          border: 1px solid #580016;
+          box-shadow: 0 0 15px rgba(128, 0, 32, 0.4);
+          text-align: center;
+          backdrop-filter: blur(4px);
+          transition: transform 0.3s ease;
+      }
+
+      .logo-flotante-lateral img {
+          width: 100%;
+          height: auto;
+          display: block;
+          filter: drop-shadow(0 0 5px #800020);
+          animation: glitch-anim 4s infinite linear alternate-reverse;
+      }
+
+      .logo-flotante-lateral:hover {
+          transform: scale(1.05);
+          border-color: #800020;
       }
 
       /* HEADER CON EFECTO GLITCH */
@@ -167,7 +194,6 @@
           box-shadow: 0 0 15px rgba(128, 0, 32, 0.5);
       }
 
-      /* CONTENEDOR TEMPORAL PARA CUANDO NO HAY FOTOS */
       .box-foto-placeholder {
           width: 100%;
           height: 240px;
@@ -227,6 +253,13 @@
       }
 
       /* ADAPTACIÓN A CELULARES */
+      @media (max-width: 1100px) {
+          /* En pantallas donde el contenido choque con el logo lateral, lo ocultamos */
+          .logo-flotante-lateral {
+              display: none;
+          }
+      }
+
       @media (max-width: 768px) {
           .menu-navegacion {
               flex-direction: column;
@@ -246,6 +279,14 @@
 </head>
 <body>
 
+  <!-- LOGO FLOTANTE LATERAL QUE ACOMPAÑA AL SCROLLEAR -->
+  <aside class="logo-flotante-lateral">
+    <a href="index.html">
+      <img src="logo.PNG" alt="MAL ESTADO">
+    </a>
+  </aside>
+
+  <!-- CABECERA -->
   <header class="header-banda">
     <div class="contenedor">
       <img src="logo.PNG" alt="MAL ESTADO" class="logo-principal">
@@ -253,6 +294,7 @@
     </div>
   </header>
 
+  <!-- NAVEGACIÓN -->
   <nav class="menu-navegacion">
     <a href="index.html#bio">BIOGRAFÍA</a>
     <a href="index.html#musica">MÚSICA</a>
@@ -262,11 +304,12 @@
 
   <main class="contenedor">
     <section class="seccion-bloque">
-      <h2 class="titulo-seccion">PRODUCTOS DISPONIBLES</h2>
+      <h2 class="titulo-seccion">CATÁLOGO DE PRODUCTOS</h2>
       <p style="margin-bottom: 25px; color: #a0a0a0;">Envíos a todo el país. Consultas directas por pedido.</p>
 
       <div class="grilla-tienda">
         
+        <!-- PRODUCTO 1 -->
         <div class="card-producto">
           <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
           <h3 class="nombre-producto">Remera «Plegaria»</h3>
@@ -274,6 +317,7 @@
           <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
         </div>
 
+        <!-- PRODUCTO 2 -->
         <div class="card-producto">
           <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
           <h3 class="nombre-producto">Buzo Oversize</h3>
@@ -281,10 +325,59 @@
           <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
         </div>
 
+        <!-- PRODUCTO 3 -->
         <div class="card-producto">
           <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
           <h3 class="nombre-producto">Gorra Subterránea</h3>
           <p class="precio-producto">$12.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <!-- PRODUCTO 4 -->
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Remera Logo VHS</h3>
+          <p class="precio-producto">$18.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <!-- PRODUCTO 5 -->
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Hoodie «Despecho»</h3>
+          <p class="precio-producto">$38.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <!-- PRODUCTO 6 -->
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Poster Edición Limitada</h3>
+          <p class="precio-producto">$6.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <!-- PRODUCTO 7 -->
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Sticker Pack Patagónico</h3>
+          <p class="precio-producto">$3.500 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <!-- PRODUCTO 8 -->
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Parche Bordado</h3>
+          <p class="precio-producto">$4.500 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <!-- PRODUCTO 9 -->
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Remera Manga Larga</h3>
+          <p class="precio-producto">$22.000 ARS</p>
           <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
         </div>
 
@@ -297,4 +390,5 @@
   </footer>
 
 </body>
+</html>
 </html>
