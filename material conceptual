@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATERIAL CONCEPTUAL ★ MAL ESTADO</title>
+    
+    <style>
+      @font-face {
+          font-family: 'FuenteEnunciados';
+          src: url('fuente enunciados.otf') format('opentype');
+      }
+
+      * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+      }
+
+      body {
+          background-color: #070707;
+          background-image: 
+              linear-gradient(rgba(10, 0, 3, 0.85), rgba(7, 7, 7, 0.90)),
+              url("fondo pagina.gif");
+          background-repeat: repeat;
+          background-size: 450px auto;
+          background-position: center top;
+          background-attachment: fixed;
+          
+          color: #d1d1d1;
+          font-family: 'Trebuchet MS', Arial, sans-serif;
+          font-size: 16px;
+          line-height: 1.8;
+      }
+
+      .contenedor {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 20px;
+          position: relative;
+          z-index: 1;
+      }
+
+      body::after {
+          content: "";
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+              rgba(18, 16, 16, 0) 50%, 
+              rgba(0, 0, 0, 0.45) 50%
+          );
+          background-size: 100% 4px;
+          pointer-events: none;
+          z-index: -1;
+          opacity: 0.7;
+          animation: vhs-flicker 0.15s infinite;
+      }
+
+      @keyframes vhs-flicker {
+          0% { opacity: 0.65; }
+          50% { opacity: 0.80; }
+          100% { opacity: 0.70; }
+      }
+
+      /* HEADER */
+      .header-banda {
+          padding: 40px 0 20px 0;
+          text-align: center;
+          border-bottom: 2px solid #580016;
+      }
+
+      .logo-principal {
+          max-width: 320px;
+          width: 80%;
+          height: auto;
+          display: block;
+          margin: 0 auto;
+          filter: drop-shadow(0 0 10px #800020);
+      }
+
+      /* NAVEGACIÓN */
+      .menu-navegacion {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          background-color: #0d0d0d;
+          border-bottom: 1px solid #33000d;
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          flex-wrap: wrap;
+          text-align: center;
+      }
+
+      .menu-navegacion a {
+          color: #ffffff;
+          text-decoration: none;
+          padding: 16px 20px;
+          font-weight: bold;
+          font-size: 14px;
+          letter-spacing: 2px;
+          display: inline-block;
+          transition: all 0.3s ease;
+      }
+
+      .menu-navegacion a:hover, .menu-navegacion a.activo {
+          background-color: #580016;
+          color: #ffffff;
+          text-shadow: 0 0 8px #ff0040;
+      }
+
+      /* BLOQUES DE CONTENIDO */
+      .seccion-bloque {
+          margin: 40px 0;
+          background-color: #0d0d0d;
+          border: 1px solid #260009;
+          padding: 35px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+      }
+
+      .titulo-seccion {
+          font-family: 'FuenteEnunciados', 'Trebuchet MS', sans-serif;
+          color: #ffffff;
+          border-left: 4px solid #800020;
+          padding-left: 14px;
+          font-size: 28px;
+          letter-spacing: 2px;
+          margin-bottom: 22px;
+          text-transform: uppercase;
+      }
+
+      .subtitulo-bloque {
+          color: #ff0040;
+          font-size: 18px;
+          letter-spacing: 1px;
+          font-weight: bold;
+          margin: 30px 0 15px 0;
+          text-transform: uppercase;
+          border-bottom: 1px dashed #580016;
+          padding-bottom: 5px;
+      }
+
+      .contenido-texto p {
+          margin-bottom: 18px;
+          text-align: justify;
+          font-size: 16.5px;
+          color: #dcdcdc;
+      }
+
+      .contenido-texto p.destacado {
+          font-weight: bold;
+          color: #ffffff;
+          border-left: 3px solid #ff0040;
+          padding-left: 15px;
+          margin: 25px 0;
+          font-style: italic;
+          background-color: rgba(88, 0, 22, 0.2);
+          padding-top: 10px;
+          padding-bottom: 10px;
+      }
+
+      /* PORTADA Y MEDIA */
+      .portada-destacada {
+          width: 100%;
+          max-width: 400px;
+          height: auto;
+          display: block;
+          margin: 0 auto 30px auto;
+          border: 1px solid #580016;
+          box-shadow: 0 0 20px rgba(128, 0, 32, 0.6);
+          border-radius: 4px;
+      }
+
+      /* LOGO EMBLEMA FLOTANTE */
+      .logo-flotante-contenedor {
+          position: fixed;
+          bottom: 25px;
+          right: 25px;
+          z-index: 999;
+      }
+
+      .logo-flotante {
+          width: 85px;
+          height: auto;
+          filter: drop-shadow(0 0 10px rgba(128, 0, 32, 0.8));
+          transition: transform 0.3s ease;
+      }
+
+      .logo-flotante:hover {
+          transform: scale(1.15) rotate(4deg);
+      }
+
+      .footer-banda {
+          text-align: center;
+          padding: 30px 0;
+          font-size: 12px;
+          color: #555;
+          border-top: 1px solid #1a0007;
+      }
+
+      @media (max-width: 768px) {
+          .menu-navegacion { flex-direction: column; }
+          .menu-navegacion a { width: 100%; padding: 12px 0; }
+          .seccion-bloque { padding: 20px 15px; }
+      }
+    </style>
+</head>
+<body>
+
+  <!-- CABECERA PRINCIPAL -->
+  <header class="header-banda">
+    <div class="contenedor">
+      <a href="index.html">
+        <img src="logo.PNG" alt="MAL ESTADO" class="logo-principal">
+      </a>
+    </div>
+  </header>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="menu-navegacion">
+    <a href="index.html#bio">BIOGRAFÍA</a>
+    <a href="index.html#musica">MÚSICA</a>
+    <a href="shop.html">SHOP</a>
+    <a href="material.html" class="activo">MATERIAL CONCEPTUAL</a>
+    <a href="index.html#contacto">CONTACTO</a>
+  </nav>
+
+  <main class="contenedor">
+    
+    <section class="seccion-bloque">
+      <h1 class="titulo-seccion">EL CONCEPTO DE LA OBRA</h1>
+      
+      <!-- PORTADA DEL ÁLBUM -->
+      <img src="portada-album.jpg" alt="Portada del Álbum" class="portada-destacada">
+
+      <div class="contenido-texto">
+        
+        <h2 class="subtitulo-bloque">I. PREMISA Y ATMÓSFERA</h2>
+        <p>
+          [Desarrollo introductorio del universo conceptual del álbum. Aquí puedes plantear el escenario, el estado mental del protagonista y el tono general de la obra.]
+        </p>
+
+        <p class="destacado">
+          «Una frase potente de la obra que resuma el núcleo narrativo.»
+        </p>
+
+        <h2 class="subtitulo-bloque">II. DESARROLLO Y ARCO NARRATIVO</h2>
+        <p>
+          [Explicación de la evolución a lo largo de los temas. Cómo va cambiando la perspectiva emocional, el conflicto principal y la catarsis.]
+        </p>
+
+        <h2 class="subtitulo-bloque">III. SIMBOLISMOS Y ELEMENTOS CLAVE</h2>
+        <p>
+          [Detalles sobre la iconografía, metáforas recurrentes o el significado oculto de la gráfica y las letras.]
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LOGO EMBLEMA FLOTANTE -->
+  <div class="logo-flotante-contenedor">
+    <a href="index.html">
+      <img src="emblema.png" alt="Emblema Mal Estado" class="logo-flotante">
+    </a>
+  </div>
+
+  <footer class="footer-banda">
+    <p>© MAL ESTADO — Todos los derechos reservados</p>
+  </footer>
+
+</body>
+</html>
