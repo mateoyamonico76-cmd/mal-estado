@@ -125,19 +125,32 @@
       }
 
       /* NAVEGACIÓN */
-      <!-- NAVEGACIÓN -->
+    <!-- NAVEGACIÓN -->
   <nav class="menu-navegacion">
     <a href="#bio">BIOGRAFÍA</a>
     <a href="#musica">MÚSICA</a>
     <a href="shop.html">SHOP</a>
+    <a href="#material">MATERIAL CONCEPTUAL</a>
     <a href="#contacto">CONTACTO</a>
   </nav>
+      }
+
+    /* NAVEGACIÓN */
+      .menu-navegacion {
+          display: flex;
+          justify-content: center;
+          background-color: #0d0d0d;
+          border-bottom: 1px solid #33000d;
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          flex-wrap: wrap;
       }
 
       .menu-navegacion a {
           color: #ffffff;
           text-decoration: none;
-          padding: 16px 26px;
+          padding: 16px 20px;
           font-weight: bold;
           font-size: 14px;
           letter-spacing: 2px;
