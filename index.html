@@ -12,7 +12,7 @@
           src: url('fuente enunciados.otf') format('opentype');
       }
 
-      /* ESTILOS GENERALES Y FUENTES AGRANDADAS */
+      /* ESTILOS GENERALES */
       * {
           box-sizing: border-box;
           margin: 0;
@@ -23,7 +23,7 @@
           background-color: #070707;
           background-image: 
               linear-gradient(rgba(10, 0, 3, 0.85), rgba(7, 7, 7, 0.90)),
-              url("fondo pagina 1.gif");
+              url("fondo pagina.gif");
           background-repeat: repeat;
           background-size: 450px auto;
           background-position: center top;
@@ -73,7 +73,7 @@
 
       /* HEADER Y LOGO CON GLITCH */
       .header-banda {
-          padding: 50px 0 30px 0;
+          padding: 40px 0 20px 0;
           text-align: center;
           border-bottom: 2px solid #580016;
       }
@@ -84,7 +84,7 @@
       }
 
       .logo-principal {
-          max-width: 420px;
+          max-width: 320px;
           width: 80%;
           height: auto;
           display: block;
@@ -124,27 +124,19 @@
           margin-top: 15px;
       }
 
-      /* NAVEGACIÓN */
-    <!-- NAVEGACIÓN -->
-  <nav class="menu-navegacion">
-    <a href="#bio">BIOGRAFÍA</a>
-    <a href="#musica">MÚSICA</a>
-    <a href="shop.html">SHOP</a>
-    <a href="#material">MATERIAL CONCEPTUAL</a>
-    <a href="#contacto">CONTACTO</a>
-  </nav>
-      }
-
-    /* NAVEGACIÓN */
+      /* NAVEGACIÓN TOTALMENTE CENTRADA Y CORREGIDA */
       .menu-navegacion {
           display: flex;
           justify-content: center;
+          align-items: center;
+          width: 100%;
           background-color: #0d0d0d;
           border-bottom: 1px solid #33000d;
           position: sticky;
           top: 0;
           z-index: 100;
           flex-wrap: wrap;
+          text-align: center;
       }
 
       .menu-navegacion a {
@@ -154,6 +146,7 @@
           font-weight: bold;
           font-size: 14px;
           letter-spacing: 2px;
+          display: inline-block;
           transition: all 0.3s ease;
       }
 
@@ -172,7 +165,7 @@
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
       }
 
-      /* TÍTULOS DE SECCIÓN APLICANDO LA FUENTE NUEVA */
+      /* TÍTULOS DE SECCIÓN */
       .titulo-seccion {
           font-family: 'FuenteEnunciados', 'Trebuchet MS', sans-serif;
           color: #ffffff;
@@ -279,15 +272,9 @@
       }
 
       @keyframes flotar {
-          0% {
-              transform: translateY(0px);
-          }
-          50% {
-              transform: translateY(-10px);
-          }
-          100% {
-              transform: translateY(0px);
-          }
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+          100% { transform: translateY(0px); }
       }
 
       /* CONTACTO */
@@ -336,7 +323,7 @@
           }
 
           .menu-navegacion a {
-              padding: 10px 0;
+              padding: 12px 0;
               width: 100%;
               text-align: center;
               border-bottom: 1px solid #1f0008;
@@ -384,6 +371,7 @@
     <a href="#bio">BIOGRAFÍA</a>
     <a href="#musica">MÚSICA</a>
     <a href="shop.html">SHOP</a>
+    <a href="#material">MATERIAL CONCEPTUAL</a>
     <a href="#contacto">CONTACTO</a>
   </nav>
 
@@ -414,7 +402,7 @@
       </div>
     </section>
 
-    <!-- 2. SECCIÓN MÚSICA (YOUTUBE + SPOTIFY) -->
+    <!-- 2. SECCIÓN MÚSICA -->
     <section id="musica" class="seccion-bloque">
       <h2 class="titulo-seccion">MÚSICA / VIDEOS</h2>
       
@@ -444,7 +432,35 @@
       </div>
     </section>
 
-    <!-- 3. SECCIÓN CONTACTO -->
+    <!-- 3. SECCIÓN MATERIAL CONCEPTUAL -->
+    <section id="material" class="seccion-bloque">
+      <h2 class="titulo-seccion">MATERIAL CONCEPTUAL</h2>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 25px; align-items: flex-start; margin-top: 15px;">
+        
+        <!-- COLUMNA DE LA PORTADA -->
+        <div style="flex: 1; min-width: 280px; text-align: center;">
+          <img src="portada-album.jpg" alt="Portada del Álbum" style="width: 100%; max-width: 350px; height: auto; border: 1px solid #580016; box-shadow: 0 0 15px rgba(128, 0, 32, 0.5); border-radius: 4px;">
+        </div>
+
+        <!-- COLUMNA DE LA EXPLICACIÓN / NARRATIVA -->
+        <div style="flex: 2; min-width: 280px;" class="contenido-bio">
+          <h3 class="subtitulo-bloque" style="margin-top: 0;">CONCEPTO & NARRATIVA</h3>
+          <p>
+            [Aquí va la introducción general al concepto del álbum. Puedes describir la premisa central, la atmósfera o el hilo conductor de la historia].
+          </p>
+          <p>
+            [Escribe aquí sobre los arcos emocionales, los personajes o simbolismos principales que atraviesan los temas del disco].
+          </p>
+          <p class="destacado">
+            «Escribe aquí alguna frase o lírica clave que resuma la esencia conceptual de la obra».
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. SECCIÓN CONTACTO -->
     <section id="contacto" class="seccion-bloque">
       <h2 class="titulo-seccion">CONTACTO</h2>
       <p style="text-align: center;">Para fechas, prensa o producción independiente:</p>
@@ -455,7 +471,7 @@
 
   </main>
 
-  <!-- LOGO EMBLEMA FLOTANTE (SE SUELE FIJAR EN PANTALLA) -->
+  <!-- LOGO EMBLEMA FLOTANTE -->
   <div class="logo-flotante-contenedor">
     <a href="#">
       <img src="emblema.png" alt="Emblema Mal Estado" class="logo-flotante">
