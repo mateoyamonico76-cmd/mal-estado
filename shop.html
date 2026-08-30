@@ -231,4 +231,152 @@
           background-color: #580016;
           color: #ffffff;
           text-decoration: none;
-          font-weight
+          font-weight: bold;
+          font-size: 12px;
+          letter-spacing: 2px;
+          border: 1px solid #800020;
+          transition: all 0.3s ease;
+      }
+
+      .btn-comprar:hover {
+          background-color: #800020;
+          box-shadow: 0 0 12px #ff0040;
+          color: #fff;
+      }
+
+      /* FOOTER */
+      .footer-banda {
+          text-align: center;
+          padding: 30px 0;
+          font-size: 12px;
+          color: #555;
+          border-top: 1px solid #1a0007;
+      }
+
+      /* ADAPTACIÓN A CELULARES */
+      @media (max-width: 1100px) {
+          .logo-flotante-lateral {
+              display: none;
+          }
+      }
+
+      @media (max-width: 768px) {
+          .menu-navegacion {
+              flex-direction: column;
+              align-items: center;
+          }
+          .menu-navegacion a {
+              padding: 10px 0;
+              width: 100%;
+              text-align: center;
+              border-bottom: 1px solid #1f0008;
+          }
+          .grilla-tienda {
+              grid-template-columns: 1fr;
+          }
+      }
+    </style>
+</head>
+<body>
+
+  <aside class="logo-flotante-lateral">
+    <a href="index.html">
+      <img src="emblema.png" alt="MAL ESTADO">
+    </a>
+  </aside>
+
+  <header class="header-banda">
+    <div class="contenedor">
+      <img src="logo.PNG" alt="MAL ESTADO" class="logo-principal">
+      <p class="subtitulo">TIENDA OFICIAL / MERCH</p>
+    </div>
+  </header>
+
+  <nav class="menu-navegacion">
+    <a href="index.html#bio">BIOGRAFÍA</a>
+    <a href="index.html#musica">MÚSICA</a>
+    <a href="shop.html" class="activo">SHOP</a>
+    <a href="material.html">MATERIAL CONCEPTUAL</a>
+    <a href="index.html#contacto">CONTACTO</a>
+  </nav>
+
+  <main class="contenedor">
+    <section class="seccion-bloque">
+      <h2 class="titulo-seccion">CATÁLOGO DE PRODUCTOS</h2>
+      <p style="margin-bottom: 25px; color: #a0a0a0;">Envíos a todo el país. Consultas directas por pedido.</p>
+
+      <div class="grilla-tienda">
+        
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Remera «Plegaria»</h3>
+          <p class="precio-producto">$18.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Buzo Oversize</h3>
+          <p class="precio-producto">$35.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Gorra Subterránea</h3>
+          <p class="precio-producto">$12.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Remera Logo VHS</h3>
+          <p class="precio-producto">$18.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Hoodie «Despecho»</h3>
+          <p class="precio-producto">$38.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Poster Edición Limitada</h3>
+          <p class="precio-producto">$6.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Sticker Pack Patagónico</h3>
+          <p class="precio-producto">$3.500 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Parche Bordado</h3>
+          <p class="precio-producto">$4.500 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Remera Manga Larga</h3>
+          <p class="precio-producto">$22.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-banda">
+    <p>© MAL ESTADO — Todos los derechos reservados</p>
+  </footer>
+
+</body>
+</html>
