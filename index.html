@@ -6,13 +6,13 @@
     <title>MAL ESTADO ★ Sitio Oficial</title>
 
     <style>
-      /* CARGA DE FUENTE PERSONALIZADA DESDE GITHUB */
+      /* FUENTE PERSONALIZADA DE DAFONT */
       @font-face {
           font-family: 'FuenteEnunciados';
           src: url('fuente enunciados.otf') format('opentype');
       }
 
-      /* ESTILOS GENERALES */
+      /* ESTILOS GENERALES Y FUENTES AGRANDADAS */
       * {
           box-sizing: border-box;
           margin: 0;
@@ -21,7 +21,7 @@
 
       body {
           background-color: #050505;
-          color: #cccccc;
+          color: #dddddd;
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
           line-height: 1.6;
           min-height: 100vh;
@@ -62,7 +62,6 @@
           border-bottom: 2px solid #800020;
           padding: 40px 20px 20px 20px;
           text-align: center;
-          position: relative;
       }
 
       .logo-header {
@@ -109,7 +108,7 @@
           text-shadow: 0 0 8px #ff0040;
       }
 
-      /* CONTENEDOR PRINCIPAL Y BLOQUES CON ANIMACIÓN DE ENTRADA */
+      /* CONTENEDOR PRINCIPAL Y BLOQUES */
       .contenedor-principal {
           max-width: 900px;
           margin: 0 auto;
@@ -123,7 +122,7 @@
           padding: 30px;
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
           
-          /* Animación de aparición suave */
+          /* EFECTO DE TRANSICIÓN/APARICIÓN SUAVE AL ABRIR LA PÁGINA */
           animation: aparecerBloque 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       }
 
@@ -138,54 +137,22 @@
           }
       }
 
-      /* ENUNCIADOS / TÍTULOS CON FUENTE PROPIA Y EFECTO GLITCH */
+      /* TITULOS DE SECCIÓN (BIOGRAFÍA, MÚSICA, CONTACTO, ETC.) */
       .titulo-seccion {
           font-family: 'FuenteEnunciados', 'Trebuchet MS', sans-serif;
-          font-size: 32px;
           color: #ffffff;
           border-left: 4px solid #800020;
           padding-left: 14px;
-          letter-spacing: 3px;
+          font-size: 28px;
+          letter-spacing: 2px;
           margin-bottom: 22px;
           text-transform: uppercase;
-          display: inline-block;
-          
-          /* Efecto Glitch continuo en texto */
-          animation: glitch-texto 4s infinite linear alternate-reverse;
-          text-shadow: 0 0 8px rgba(255, 0, 64, 0.6);
-      }
-
-      @keyframes glitch-texto {
-          0% {
-              text-shadow: 2px 0 #ff0040, -2px 0 #00ffff;
-              transform: translate(0);
-          }
-          90% {
-              text-shadow: 2px 0 #ff0040, -2px 0 #00ffff;
-              transform: translate(0);
-          }
-          92% {
-              text-shadow: -3px 0 #ff0040, 3px 0 #00ffff;
-              transform: translate(-2px, 1px);
-          }
-          94% {
-              text-shadow: 3px 0 #ff0040, -3px 0 #00ffff;
-              transform: translate(2px, -1px);
-          }
-          96% {
-              text-shadow: -1px 0 #ff0040, 1px 0 #00ffff;
-              transform: translate(0);
-          }
-          100% {
-              text-shadow: 2px 0 #ff0040, -2px 0 #00ffff;
-              transform: translate(0);
-          }
       }
 
       /* CONTENEDOR DE VIDEOS RESPONSIVO */
       .contenedor-video {
           position: relative;
-          padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+          padding-bottom: 56.25%;
           height: 0;
           overflow: hidden;
           margin-top: 15px;
@@ -236,7 +203,7 @@
           margin-top: 40px;
       }
 
-      /* ANIMACIÓN GLITCH DE IMÁGENES */
+      /* ANIMACIÓN GLITCH PARA LOGO Y BANDERAS */
       @keyframes glitch-anim {
           0% { transform: translate(0); }
           95% { transform: translate(0); }
@@ -247,10 +214,10 @@
           100% { transform: translate(0); }
       }
 
-      /* ADAPTACIÓN A DISPOSITIVOS MÓVILES (CELULARES) */
+      /* ADAPTACIÓN A CELULARES */
       @media (max-width: 768px) {
           .logo-flotante-lateral {
-              display: none; /* Se oculta en celulares para no molestar */
+              display: none;
           }
           
           .nav-contenedor {
@@ -260,10 +227,6 @@
           .nav-link {
               text-align: center;
               border-bottom: 1px solid #1a0005;
-          }
-
-          .titulo-seccion {
-              font-size: 24px;
           }
       }
     </style>
@@ -307,7 +270,6 @@
           <p>Mirá nuestro material audiovisual más reciente:</p>
           
           <div class="contenedor-video">
-              <!-- Reemplaza el enlace de YouTube por el de tu video -->
               <iframe src="https://www.youtube.com/embed/videoseries?list=PLrxX_GjT505E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
       </section>
