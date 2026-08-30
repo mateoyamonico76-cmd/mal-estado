@@ -3,16 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAL ESTADO ★ Sitio Oficial</title>
-
+    <title>MAL ESTADO ★ Tienda Oficial</title>
+    
     <style>
-      /* FUENTE PERSONALIZADA DE DAFONT */
-      @font-face {
-          font-family: 'FuenteEnunciados';
-          src: url('fuente enunciados.otf') format('opentype');
-      }
-
-      /* ESTILOS GENERALES Y FUENTES AGRANDADAS */
+      /* ESTILOS GENERALES Y FONDO GIF */
       * {
           box-sizing: border-box;
           margin: 0;
@@ -20,11 +14,54 @@
       }
 
       body {
-          background-color: #050505;
-          color: #dddddd;
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          line-height: 1.6;
-          min-height: 100vh;
+          background-color: #070707;
+          background-image: 
+              linear-gradient(rgba(10, 0, 3, 0.85), rgba(7, 7, 7, 0.90)),
+              url("fondo pagina.gif");
+          background-repeat: repeat;
+          background-size: 450px auto;
+          background-position: center top;
+          background-attachment: fixed;
+          
+          color: #d1d1d1;
+          font-family: 'Trebuchet MS', Arial, sans-serif;
+          font-size: 16px;
+          line-height: 1.8;
+          margin: 0;
+          padding: 0;
+      }
+
+      .contenedor {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 20px;
+          position: relative;
+          z-index: 1;
+      }
+
+      /* CAPA SUPERPUESTA DE EFECTO VHS */
+      body::after {
+          content: "";
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+              rgba(18, 16, 16, 0) 50%, 
+              rgba(0, 0, 0, 0.45) 50%
+          );
+          background-size: 100% 4px;
+          pointer-events: none;
+          z-index: -1;
+          opacity: 0.7;
+          animation: vhs-flicker 0.15s infinite;
+      }
+
+      @keyframes vhs-flicker {
+          0% { opacity: 0.65; }
+          50% { opacity: 0.80; }
+          100% { opacity: 0.70; }
       }
 
       /* LOGO FLOTANTE LATERAL QUE TE SIGUE AL SCROLLEAR */
@@ -58,240 +95,298 @@
 
       /* HEADER CON EFECTO GLITCH */
       .header-banda {
-          background: linear-gradient(180deg, #1a0005 0%, #050505 100%);
-          border-bottom: 2px solid #800020;
-          padding: 40px 20px 20px 20px;
+          padding: 40px 0 20px 0;
           text-align: center;
+          border-bottom: 2px solid #580016;
       }
 
-      .logo-header {
+      .logo-principal {
           max-width: 320px;
+          width: 80%;
           height: auto;
-          filter: drop-shadow(0 0 10px #800020);
+          display: block;
+          margin: 0 auto;
           animation: glitch-anim 3s infinite linear alternate-reverse;
+          filter: drop-shadow(0 0 10px #800020);
       }
 
-      /* NAVEGACIÓN PRINCIPAL */
-      nav {
+      @keyframes glitch-anim {
+          0% { transform: translate(0); filter: drop-shadow(0 0 10px #800020); }
+          92% { transform: translate(0); filter: drop-shadow(0 0 10px #800020); }
+          93% { transform: translate(-3px, 2px); filter: drop-shadow(-3px 0 #ff0040) drop-shadow(3px 0 #00ffff); }
+          95% { transform: translate(3px, -2px); filter: drop-shadow(3px 0 #ff0040) drop-shadow(-3px 0 #00ffff); }
+          97% { transform: translate(-2px, -1px); filter: drop-shadow(-2px 0 #ff0040); }
+          100% { transform: translate(0); filter: drop-shadow(0 0 12px #ff0040); }
+      }
+
+      .subtitulo {
+          color: #800020;
+          font-size: 13px;
+          letter-spacing: 4px;
+          font-weight: bold;
+          margin-top: 15px;
+      }
+
+      /* NAVEGACIÓN */
+      .menu-navegacion {
+          display: flex;
+          justify-content: center;
           background-color: #0d0d0d;
-          border-top: 1px solid #260009;
-          border-bottom: 1px solid #260009;
+          border-bottom: 1px solid #33000d;
           position: sticky;
           top: 0;
           z-index: 100;
       }
 
-      .nav-contenedor {
-          max-width: 1000px;
-          margin: 0 auto;
-          display: flex;
-          justify-content: center;
-          flex-wrap: wrap;
-      }
-
-      .nav-link {
+      .menu-navegacion a {
           color: #ffffff;
           text-decoration: none;
-          padding: 15px 25px;
+          padding: 16px 26px;
           font-weight: bold;
-          letter-spacing: 2px;
           font-size: 14px;
-          text-transform: uppercase;
+          letter-spacing: 2px;
           transition: all 0.3s ease;
-          border-bottom: 3px solid transparent;
       }
 
-      .nav-link:hover, .nav-link.active {
-          color: #ff0040;
-          background-color: #1a0005;
-          border-bottom: 3px solid #ff0040;
+      .menu-navegacion a:hover, .menu-navegacion a.activo {
+          background-color: #580016;
+          color: #ffffff;
           text-shadow: 0 0 8px #ff0040;
       }
 
-      /* CONTENEDOR PRINCIPAL Y BLOQUES */
-      .contenedor-principal {
-          max-width: 900px;
-          margin: 0 auto;
-          padding: 20px;
-      }
-
+      /* TARJETAS Y GRILLA DE PRODUCTOS */
       .seccion-bloque {
           margin: 40px 0;
           background-color: #0d0d0d;
           border: 1px solid #260009;
           padding: 30px;
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-          
-          /* EFECTO DE TRANSICIÓN/APARICIÓN SUAVE AL ABRIR LA PÁGINA */
-          animation: aparecerBloque 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       }
 
-      @keyframes aparecerBloque {
-          0% {
-              opacity: 0;
-              transform: translateY(30px);
-          }
-          100% {
-              opacity: 1;
-              transform: translateY(0);
-          }
-      }
-
-      /* TITULOS DE SECCIÓN (BIOGRAFÍA, MÚSICA, CONTACTO, ETC.) */
       .titulo-seccion {
-          font-family: 'FuenteEnunciados', 'Trebuchet MS', sans-serif;
           color: #ffffff;
           border-left: 4px solid #800020;
           padding-left: 14px;
-          font-size: 28px;
+          font-size: 22px;
           letter-spacing: 2px;
           margin-bottom: 22px;
           text-transform: uppercase;
       }
 
-      /* CONTENEDOR DE VIDEOS RESPONSIVO */
-      .contenedor-video {
-          position: relative;
-          padding-bottom: 56.25%;
-          height: 0;
-          overflow: hidden;
-          margin-top: 15px;
-          border: 1px solid #33000d;
+      .grilla-tienda {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 25px;
+          margin-top: 20px;
       }
 
-      .contenedor-video iframe {
-          position: absolute;
-          top: 0;
-          left: 0;
+      .card-producto {
+          background: linear-gradient(135deg, #120206 0%, #080808 100%);
+          border: 1px solid #38000e;
+          padding: 20px;
+          text-align: center;
+          transition: transform 0.3s ease, border-color 0.3s ease;
+      }
+
+      .card-producto:hover {
+          transform: translateY(-5px);
+          border-color: #800020;
+          box-shadow: 0 0 15px rgba(128, 0, 32, 0.5);
+      }
+
+      .box-foto-placeholder {
           width: 100%;
-          height: 100%;
-      }
-
-      /* REDES Y CONTACTO */
-      .redes-lista {
-          list-style: none;
+          height: 240px;
+          background-color: #050505;
+          border: 1px dashed #580016;
           display: flex;
-          gap: 15px;
-          flex-wrap: wrap;
-          margin-top: 15px;
+          align-items: center;
+          justify-content: center;
+          color: #800020;
+          font-size: 13px;
+          font-weight: bold;
+          letter-spacing: 2px;
+          text-transform: uppercase;
       }
 
-      .redes-lista a {
+      .nombre-producto {
           color: #ffffff;
-          background-color: #1a0005;
-          padding: 10px 20px;
-          text-decoration: none;
-          border: 1px solid #800020;
+          font-size: 18px;
+          margin: 15px 0 5px 0;
           font-weight: bold;
+      }
+
+      .precio-producto {
+          color: #ff0040;
+          font-size: 16px;
+          font-weight: bold;
+          margin-bottom: 15px;
+      }
+
+      .btn-comprar {
+          display: inline-block;
+          width: 100%;
+          padding: 12px 0;
+          background-color: #580016;
+          color: #ffffff;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 12px;
+          letter-spacing: 2px;
+          border: 1px solid #800020;
           transition: all 0.3s ease;
       }
 
-      .redes-lista a:hover {
+      .btn-comprar:hover {
           background-color: #800020;
-          color: #ffffff;
-          box-shadow: 0 0 10px #ff0040;
+          box-shadow: 0 0 12px #ff0040;
+          color: #fff;
       }
 
       /* FOOTER */
-      footer {
+      .footer-banda {
           text-align: center;
-          padding: 30px 20px;
-          background-color: #030303;
-          border-top: 1px solid #1a0005;
-          font-size: 13px;
-          color: #666666;
-          margin-top: 40px;
-      }
-
-      /* ANIMACIÓN GLITCH PARA LOGO Y BANDERAS */
-      @keyframes glitch-anim {
-          0% { transform: translate(0); }
-          95% { transform: translate(0); }
-          96% { transform: translate(-2px, 2px); }
-          97% { transform: translate(2px, -2px); }
-          98% { transform: translate(-1px, -1px); }
-          99% { transform: translate(1px, 2px); }
-          100% { transform: translate(0); }
+          padding: 30px 0;
+          font-size: 12px;
+          color: #555;
+          border-top: 1px solid #1a0007;
       }
 
       /* ADAPTACIÓN A CELULARES */
-      @media (max-width: 768px) {
+      @media (max-width: 1100px) {
+          /* En pantallas donde el contenido choque con el logo lateral, lo ocultamos */
           .logo-flotante-lateral {
               display: none;
           }
-          
-          .nav-contenedor {
-              flex-direction: column;
-          }
+      }
 
-          .nav-link {
+      @media (max-width: 768px) {
+          .menu-navegacion {
+              flex-direction: column;
+              align-items: center;
+          }
+          .menu-navegacion a {
+              padding: 10px 0;
+              width: 100%;
               text-align: center;
-              border-bottom: 1px solid #1a0005;
+              border-bottom: 1px solid #1f0008;
+          }
+          .grilla-tienda {
+              grid-template-columns: 1fr;
           }
       }
     </style>
 </head>
 <body>
 
-  <!-- LOGO FLOTANTE LATERAL QUE TE SIGUE AL SCROLLEAR -->
+  <!-- LOGO FLOTANTE LATERAL QUE ACOMPAÑA AL SCROLLEAR -->
   <aside class="logo-flotante-lateral">
     <a href="index.html">
       <img src="logo.PNG" alt="MAL ESTADO">
     </a>
   </aside>
 
-  <!-- HEADER CON LOGO PRINCIPAL -->
+  <!-- CABECERA -->
   <header class="header-banda">
-      <img src="logo.PNG" alt="MAL ESTADO" class="logo-header">
+    <div class="contenedor">
+      <img src="logo.PNG" alt="MAL ESTADO" class="logo-principal">
+      <p class="subtitulo">TIENDA OFICIAL / MERCH</p>
+    </div>
   </header>
 
   <!-- NAVEGACIÓN -->
-  <nav>
-      <div class="nav-contenedor">
-          <a href="#biografia" class="nav-link active">Biografía</a>
-          <a href="#musica" class="nav-link">Música / Videos</a>
-          <a href="shop.html" class="nav-link">Shop</a>
-          <a href="#contacto" class="nav-link">Contacto</a>
-      </div>
+  <nav class="menu-navegacion">
+    <a href="index.html#bio">BIOGRAFÍA</a>
+    <a href="index.html#musica">MÚSICA</a>
+    <a href="shop.html" class="activo">SHOP</a>
+    <a href="index.html#contacto">CONTACTO</a>
   </nav>
 
-  <!-- CONTENIDO PRINCIPAL -->
-  <main class="contenedor-principal">
+  <main class="contenedor">
+    <section class="seccion-bloque">
+      <h2 class="titulo-seccion">CATÁLOGO DE PRODUCTOS</h2>
+      <p style="margin-bottom: 25px; color: #a0a0a0;">Envíos a todo el país. Consultas directas por pedido.</p>
 
-      <!-- SECCIÓN BIOGRAFÍA -->
-      <section id="biografia" class="seccion-bloque">
-          <h2 class="titulo-seccion">Biografía</h2>
-          <p>MAL ESTADO es una banda orientada al sonido extremo, pesado y oscuro. Integrando pasajes viscerales con una estética agresiva e industrial.</p>
-      </section>
+      <div class="grilla-tienda">
+        
+        <!-- PRODUCTO 1 -->
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Remera «Plegaria»</h3>
+          <p class="precio-producto">$18.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
 
-      <!-- SECCIÓN MÚSICA / VIDEOS -->
-      <section id="musica" class="seccion-bloque">
-          <h2 class="titulo-seccion">Música / Videos</h2>
-          <p>Mirá nuestro material audiovisual más reciente:</p>
-          
-          <div class="contenedor-video">
-              <iframe src="https://www.youtube.com/embed/videoseries?list=PLrxX_GjT505E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-      </section>
+        <!-- PRODUCTO 2 -->
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Buzo Oversize</h3>
+          <p class="precio-producto">$35.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
 
-      <!-- SECCIÓN CONTACTO Y REDES -->
-      <section id="contacto" class="seccion-bloque">
-          <h2 class="titulo-seccion">Contacto & Redes</h2>
-          <p>Encontranos en nuestras plataformas oficiales:</p>
-          
-          <ul class="redes-lista">
-              <li><a href="#" target="_blank">Instagram</a></li>
-              <li><a href="#" target="_blank">YouTube</a></li>
-              <li><a href="#" target="_blank">Spotify</a></li>
-              <li><a href="mailto:contacto@malestado.com">Email</a></li>
-          </ul>
-      </section>
+        <!-- PRODUCTO 3 -->
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Gorra Subterránea</h3>
+          <p class="precio-producto">$12.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
 
+        <!-- PRODUCTO 4 -->
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Remera Logo VHS</h3>
+          <p class="precio-producto">$18.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <!-- PRODUCTO 5 -->
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Hoodie «Despecho»</h3>
+          <p class="precio-producto">$38.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <!-- PRODUCTO 6 -->
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Poster Edición Limitada</h3>
+          <p class="precio-producto">$6.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <!-- PRODUCTO 7 -->
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Sticker Pack Patagónico</h3>
+          <p class="precio-producto">$3.500 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <!-- PRODUCTO 8 -->
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Parche Bordado</h3>
+          <p class="precio-producto">$4.500 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+        <!-- PRODUCTO 9 -->
+        <div class="card-producto">
+          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
+          <h3 class="nombre-producto">Remera Manga Larga</h3>
+          <p class="precio-producto">$22.000 ARS</p>
+          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
+        </div>
+
+      </div>
+    </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-      <p>&copy; 2026 MAL ESTADO. Todos los derechos reservados.</p>
+  <footer class="footer-banda">
+    <p>© MAL ESTADO — Todos los derechos reservados</p>
   </footer>
 
 </body>
