@@ -243,6 +243,41 @@
           height: 100%;
       }
 
+      /* LOGO EMBLEMA FLOTANTE */
+      .logo-flotante-contenedor {
+          position: fixed;
+          bottom: 25px;
+          right: 25px;
+          z-index: 999;
+          pointer-events: auto;
+      }
+
+      .logo-flotante {
+          width: 85px;
+          height: auto;
+          display: block;
+          filter: drop-shadow(0 0 10px rgba(128, 0, 32, 0.8));
+          animation: flotar 3.5s ease-in-out infinite;
+          transition: transform 0.3s ease, filter 0.3s ease;
+      }
+
+      .logo-flotante:hover {
+          transform: scale(1.15) rotate(4deg);
+          filter: drop-shadow(0 0 18px #ff0040);
+      }
+
+      @keyframes flotar {
+          0% {
+              transform: translateY(0px);
+          }
+          50% {
+              transform: translateY(-10px);
+          }
+          100% {
+              transform: translateY(0px);
+          }
+      }
+
       /* CONTACTO */
       .link-contacto {
           color: #800020;
@@ -307,6 +342,15 @@
           .contenido-bio p {
               font-size: 15px;
               text-align: left;
+          }
+
+          .logo-flotante {
+              width: 65px;
+          }
+
+          .logo-flotante-contenedor {
+              bottom: 15px;
+              right: 15px;
           }
       }
     </style>
@@ -398,6 +442,13 @@
     </section>
 
   </main>
+
+  <!-- LOGO EMBLEMA FLOTANTE (SE SUELE FIJAR EN PANTALLA) -->
+  <div class="logo-flotante-contenedor">
+    <a href="#">
+      <img src="emblema.png" alt="Emblema Mal Estado" class="logo-flotante">
+    </a>
+  </div>
 
   <footer class="footer-banda">
     <p>© MAL ESTADO — Todos los derechos reservados</p>
