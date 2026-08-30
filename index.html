@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAL ESTADO ★ Tienda Oficial</title>
+    <title>MAL ESTADO ★ Sitio Oficial</title>
     
     <style>
-      /* ESTILOS GENERALES Y FONDO GIF */
+      /* ESTILOS GENERALES Y FUENTES AGRANDADAS */
       * {
           box-sizing: border-box;
           margin: 0;
@@ -31,6 +31,7 @@
           padding: 0;
       }
 
+      /* COLUMNA CENTRAL CENTRADA */
       .contenedor {
           max-width: 900px;
           margin: 0 auto;
@@ -39,7 +40,7 @@
           z-index: 1;
       }
 
-      /* CAPA SUPERPUESTA DE EFECTO VHS */
+      /* CAPA SUPERPUESTA DE EFECTO VHS EN EL FONDO */
       body::after {
           content: "";
           position: fixed;
@@ -64,40 +65,16 @@
           100% { opacity: 0.70; }
       }
 
-      /* LOGO FLOTANTE LATERAL QUE TE SIGUE AL SCROLLEAR */
-      .logo-flotante-lateral {
-          position: fixed;
-          top: 35%;
-          left: 20px;
-          z-index: 99;
-          width: 140px;
-          padding: 10px;
-          background: rgba(13, 13, 13, 0.85);
-          border: 1px solid #580016;
-          box-shadow: 0 0 15px rgba(128, 0, 32, 0.4);
-          text-align: center;
-          backdrop-filter: blur(4px);
-          transition: transform 0.3s ease;
-      }
-
-      .logo-flotante-lateral img {
-          width: 100%;
-          height: auto;
-          display: block;
-          filter: drop-shadow(0 0 5px #800020);
-          animation: glitch-anim 4s infinite linear alternate-reverse;
-      }
-
-      .logo-flotante-lateral:hover {
-          transform: scale(1.05);
-          border-color: #800020;
-      }
-
-      /* HEADER CON EFECTO GLITCH */
+      /* HEADER Y LOGO CON GLITCH */
       .header-banda {
           padding: 40px 0 20px 0;
           text-align: center;
           border-bottom: 2px solid #580016;
+      }
+
+      .glitch-wrapper {
+          display: inline-block;
+          position: relative;
       }
 
       .logo-principal {
@@ -106,8 +83,14 @@
           height: auto;
           display: block;
           margin: 0 auto;
+          position: relative;
+          z-index: 1;
           animation: glitch-anim 3s infinite linear alternate-reverse;
           filter: drop-shadow(0 0 10px #800020);
+      }
+
+      .logo-principal:hover {
+          animation: glitch-anim-hover 0.2s infinite ease-in-out;
       }
 
       @keyframes glitch-anim {
@@ -117,6 +100,14 @@
           95% { transform: translate(3px, -2px); filter: drop-shadow(3px 0 #ff0040) drop-shadow(-3px 0 #00ffff); }
           97% { transform: translate(-2px, -1px); filter: drop-shadow(-2px 0 #ff0040); }
           100% { transform: translate(0); filter: drop-shadow(0 0 12px #ff0040); }
+      }
+
+      @keyframes glitch-anim-hover {
+          0% { transform: translate(0); filter: drop-shadow(-4px 0 #ff0040) drop-shadow(4px 0 #00ffff); }
+          25% { transform: translate(-5px, 3px) skewX(5deg); filter: drop-shadow(5px -2px #ff0040); }
+          50% { transform: translate(4px, -3px) skewX(-5deg); filter: drop-shadow(-5px 2px #00ffff); }
+          75% { transform: translate(-2px, 2px); filter: drop-shadow(3px 0 #ff0040); }
+          100% { transform: translate(0); filter: drop-shadow(-4px 0 #ff0040) drop-shadow(4px 0 #00ffff); }
       }
 
       .subtitulo {
@@ -148,13 +139,13 @@
           transition: all 0.3s ease;
       }
 
-      .menu-navegacion a:hover, .menu-navegacion a.activo {
+      .menu-navegacion a:hover {
           background-color: #580016;
           color: #ffffff;
           text-shadow: 0 0 8px #ff0040;
       }
 
-      /* TARJETAS Y GRILLA DE PRODUCTOS */
+      /* BLOQUES DE SECCIÓN */
       .seccion-bloque {
           margin: 40px 0;
           background-color: #0d0d0d;
@@ -173,74 +164,87 @@
           text-transform: uppercase;
       }
 
-      .grilla-tienda {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-          gap: 25px;
-          margin-top: 20px;
-      }
-
-      .card-producto {
-          background: linear-gradient(135deg, #120206 0%, #080808 100%);
-          border: 1px solid #38000e;
-          padding: 20px;
-          text-align: center;
-          transition: transform 0.3s ease, border-color 0.3s ease;
-      }
-
-      .card-producto:hover {
-          transform: translateY(-5px);
-          border-color: #800020;
-          box-shadow: 0 0 15px rgba(128, 0, 32, 0.5);
-      }
-
-      .box-foto-placeholder {
-          width: 100%;
-          height: 240px;
-          background-color: #050505;
-          border: 1px dashed #580016;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: #800020;
-          font-size: 13px;
+      .subtitulo-bloque {
+          color: #ff0040;
+          font-size: 15px;
+          letter-spacing: 1px;
           font-weight: bold;
-          letter-spacing: 2px;
+          margin: 25px 0 12px 0;
           text-transform: uppercase;
       }
 
-      .nombre-producto {
+      /* BIOGRAFÍA */
+      .contenido-bio p {
+          margin-bottom: 18px;
+          text-align: justify;
+          font-size: 16.5px;
+          color: #dcdcdc;
+      }
+
+      .contenido-bio p.destacado {
+          font-weight: bold;
           color: #ffffff;
-          font-size: 18px;
-          margin: 15px 0 5px 0;
-          font-weight: bold;
+          border-left: 2px solid #580016;
+          padding-left: 12px;
+          margin: 20px 0;
       }
 
-      .precio-producto {
-          color: #ff0040;
-          font-size: 16px;
-          font-weight: bold;
-          margin-bottom: 15px;
+      /* REPRODUCTOR DE YOUTUBE RESPONSIVO */
+      .reproductor-card {
+          background: linear-gradient(135deg, #1f0008 0%, #0d0d0d 100%);
+          border: 1px solid #580016;
+          padding: 22px;
+          border-radius: 4px;
       }
 
-      .btn-comprar {
-          display: inline-block;
+      .badge-demo {
+          background-color: #800020;
+          color: #fff;
+          font-size: 11px;
+          font-weight: bold;
+          padding: 4px 10px;
+          letter-spacing: 1px;
+      }
+
+      .info-track h3 {
+          color: #ffffff;
+          margin-top: 10px;
+          font-size: 22px;
+      }
+
+      .info-track p {
+          color: #a0a0a0;
+          font-size: 14px;
+          margin-bottom: 18px;
+      }
+
+      .video-container {
+          position: relative;
+          padding-bottom: 56.25%;
+          height: 0;
+          overflow: hidden;
+          border: 1px solid #580016;
+          box-shadow: 0 0 10px rgba(128, 0, 32, 0.4);
+      }
+
+      .video-container iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
           width: 100%;
-          padding: 12px 0;
-          background-color: #580016;
-          color: #ffffff;
+          height: 100%;
+      }
+
+      /* CONTACTO */
+      .link-contacto {
+          color: #800020;
           text-decoration: none;
           font-weight: bold;
-          font-size: 12px;
-          letter-spacing: 2px;
-          border: 1px solid #800020;
-          transition: all 0.3s ease;
       }
 
-      .btn-comprar:hover {
-          background-color: #800020;
-          box-shadow: 0 0 12px #ff0040;
-          color: #fff;
+      .link-contacto:hover {
+          color: #ff0040;
+          text-decoration: underline;
       }
 
       /* FOOTER */
@@ -252,137 +256,139 @@
           border-top: 1px solid #1a0007;
       }
 
-      /* ADAPTACIÓN A CELULARES */
-      @media (max-width: 1100px) {
-          /* En pantallas donde el contenido choque con el logo lateral, lo ocultamos */
-          .logo-flotante-lateral {
-              display: none;
-          }
-      }
-
+      /* AJUSTES PARA CELULARES */
       @media (max-width: 768px) {
+          body {
+              font-size: 15px;
+          }
+
+          .contenedor {
+              padding: 0 12px;
+          }
+
+          .logo-principal {
+              max-width: 240px;
+          }
+
+          .subtitulo {
+              font-size: 11px;
+              letter-spacing: 2px;
+          }
+
           .menu-navegacion {
               flex-direction: column;
               align-items: center;
           }
+
           .menu-navegacion a {
               padding: 10px 0;
               width: 100%;
               text-align: center;
               border-bottom: 1px solid #1f0008;
           }
-          .grilla-tienda {
-              grid-template-columns: 1fr;
+
+          .seccion-bloque {
+              padding: 18px 14px;
+              margin: 20px 0;
+          }
+
+          .titulo-seccion {
+              font-size: 18px;
+          }
+
+          .contenido-bio p {
+              font-size: 15px;
+              text-align: left;
           }
       }
     </style>
 </head>
 <body>
 
-  <!-- LOGO FLOTANTE LATERAL QUE ACOMPAÑA AL SCROLLEAR -->
-  <aside class="logo-flotante-lateral">
-    <a href="index.html">
-      <img src="logo.PNG" alt="MAL ESTADO">
-    </a>
-  </aside>
-
-  <!-- CABECERA -->
+  <!-- CABECERA PRINCIPAL -->
   <header class="header-banda">
     <div class="contenedor">
-      <img src="logo.PNG" alt="MAL ESTADO" class="logo-principal">
-      <p class="subtitulo">TIENDA OFICIAL / MERCH</p>
+      <div class="glitch-wrapper">
+        <img src="logo.PNG" alt="MAL ESTADO" class="logo-principal">
+      </div>
+      <p class="subtitulo">DEATHCORE / PATAGONIA ARGENTINA</p>
     </div>
   </header>
 
   <!-- NAVEGACIÓN -->
   <nav class="menu-navegacion">
-    <a href="index.html#bio">BIOGRAFÍA</a>
-    <a href="index.html#musica">MÚSICA</a>
-    <a href="shop.html" class="activo">SHOP</a>
-    <a href="index.html#contacto">CONTACTO</a>
+    <a href="#bio">BIOGRAFÍA</a>
+    <a href="#musica">MÚSICA</a>
+    <a href="shop.html">SHOP</a>
+    <a href="#contacto">CONTACTO</a>
   </nav>
 
   <main class="contenedor">
-    <section class="seccion-bloque">
-      <h2 class="titulo-seccion">CATÁLOGO DE PRODUCTOS</h2>
-      <p style="margin-bottom: 25px; color: #a0a0a0;">Envíos a todo el país. Consultas directas por pedido.</p>
-
-      <div class="grilla-tienda">
-        
-        <!-- PRODUCTO 1 -->
-        <div class="card-producto">
-          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
-          <h3 class="nombre-producto">Remera «Plegaria»</h3>
-          <p class="precio-producto">$18.000 ARS</p>
-          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
-        </div>
-
-        <!-- PRODUCTO 2 -->
-        <div class="card-producto">
-          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
-          <h3 class="nombre-producto">Buzo Oversize</h3>
-          <p class="precio-producto">$35.000 ARS</p>
-          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
-        </div>
-
-        <!-- PRODUCTO 3 -->
-        <div class="card-producto">
-          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
-          <h3 class="nombre-producto">Gorra Subterránea</h3>
-          <p class="precio-producto">$12.000 ARS</p>
-          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
-        </div>
-
-        <!-- PRODUCTO 4 -->
-        <div class="card-producto">
-          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
-          <h3 class="nombre-producto">Remera Logo VHS</h3>
-          <p class="precio-producto">$18.000 ARS</p>
-          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
-        </div>
-
-        <!-- PRODUCTO 5 -->
-        <div class="card-producto">
-          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
-          <h3 class="nombre-producto">Hoodie «Despecho»</h3>
-          <p class="precio-producto">$38.000 ARS</p>
-          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
-        </div>
-
-        <!-- PRODUCTO 6 -->
-        <div class="card-producto">
-          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
-          <h3 class="nombre-producto">Poster Edición Limitada</h3>
-          <p class="precio-producto">$6.000 ARS</p>
-          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
-        </div>
-
-        <!-- PRODUCTO 7 -->
-        <div class="card-producto">
-          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
-          <h3 class="nombre-producto">Sticker Pack Patagónico</h3>
-          <p class="precio-producto">$3.500 ARS</p>
-          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
-        </div>
-
-        <!-- PRODUCTO 8 -->
-        <div class="card-producto">
-          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
-          <h3 class="nombre-producto">Parche Bordado</h3>
-          <p class="precio-producto">$4.500 ARS</p>
-          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
-        </div>
-
-        <!-- PRODUCTO 9 -->
-        <div class="card-producto">
-          <div class="box-foto-placeholder">PRÓXIMAMENTE</div>
-          <h3 class="nombre-producto">Remera Manga Larga</h3>
-          <p class="precio-producto">$22.000 ARS</p>
-          <a href="https://wa.me/5492804000000" target="_blank" class="btn-comprar">CONSULTAR / PEDIR</a>
-        </div>
-
+    
+    <!-- 1. SECCIÓN BIOGRAFÍA -->
+    <section id="bio" class="seccion-bloque">
+      <h2 class="titulo-seccion">SOBRE LA BANDA</h2>
+      <div class="contenido-bio">
+        <p>
+            Hay un punto de quiebre en el dolor donde la resignación se transforma en furia. Ocurre cuando las promesas se rompen, cuando los lazos familiares se tensan hasta quebrarse y cuando las amistades o los afectos dejan más cicatrices que refugio. En ese instante, mirar alrededor solo devuelve el silencio frío del sur.
+        </p>
+        <p class="destacado">
+            De esa grieta profunda nace Mal Estado.
+        </p>
+        <p>
+            Originarios de la provincia de Chubut, en la Patagonia argentina, la banda no surgió como un proyecto planificado ni como una simple ambición artística, sino como un mecanismo de supervivencia. Crecidos bajo la influencia estética y sonora de la era Myspace de mediados de los 2000 —aquel periodo donde la vulnerabilidad se exponía en crudo a través de guitarras lacerantes, voces al límite y habitaciones a oscuras—, el grupo encontró en la distorsión el único idioma capaz de traducir la soledad, el despecho y la rabia acumulada.
+        </p>
+        <p>
+            Su carta de presentación, «Plegaria», es el reflejo de esta filosofía. La canción no busca ser una invocación piadosa, sino el reclamo visceral de quien se siente abandonado hasta por lo divino. Grabarla no significó un cierre ni una curación instantánea; fue romper un dique. Fue abrir una compuerta que llevaba años trabada bajo el peso del aislamiento para dejar salir el dolor sin filtros ni producción impostada.
+        </p>
+        <p>
+            Con una estética desalineada, genuina y distante de las modas pulcritud de la escena actual, Mal Estado habitan la contradicción de la condición humana: conocen el peso de los excesos y el intento de anestesiar la mente cuando la realidad se vuelve insoportable, pero rechazan la indiferencia. No se presentan como ejemplos de superación ni pretenden ofrecer lecciones de vida desde un altar. Son compañeros de trinchera.
+        </p>
+        <p>
+            Mal Estado es la mano extendida en la penumbra. Una señal de humo y un puerto de desembarco para los desanimados, los incomprendidos y los que cargan con sus heridas en silencio. Es la certeza de que, incluso ante el silencio más absoluto, no están solos.
+        </p>
       </div>
     </section>
+
+    <!-- 2. SECCIÓN MÚSICA (YOUTUBE + SPOTIFY) -->
+    <section id="musica" class="seccion-bloque">
+      <h2 class="titulo-seccion">MÚSICA / VIDEOS</h2>
+      
+      <!-- VIDEO DE YOUTUBE -->
+      <div class="reproductor-card">
+        <div class="info-track">
+          <span class="badge-demo">ESTRENO</span>
+          <h3>MAL ESTADO — Plegaria</h3>
+          <p>Mira el video oficial directamente aquí abajo.</p>
+        </div>
+
+        <div class="video-container">
+          <iframe 
+            src="https://www.youtube-nocookie.com/embed/sveaq3GOcXQ" 
+            title="Mal Estado - Plegaria" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- REPRODUCTOR DE SPOTIFY -->
+      <h3 class="subtitulo-bloque">ESCUCHANOS EN SPOTIFY</h3>
+      <div style="border-radius: 12px; overflow: hidden; background-color: #0d0d0d; border: 1px solid #38000e;">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/3l8fqYxrYI3MpdwcsgO5nK?utm_source=generator&si=3437ed92bb7844cd" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <!-- 3. SECCIÓN CONTACTO -->
+    <section id="contacto" class="seccion-bloque">
+      <h2 class="titulo-seccion">CONTACTO</h2>
+      <p style="text-align: center;">Para fechas, prensa o producción independiente:</p>
+      <p style="text-align: center; font-size: 20px; margin-top: 10px;">
+        <a href="mailto:contacto@malestado.com" class="link-contacto">contacto@malestado.com</a>
+      </p>
+    </section>
+
   </main>
 
   <footer class="footer-banda">
