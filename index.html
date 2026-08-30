@@ -6,6 +6,12 @@
     <title>MAL ESTADO ★ Sitio Oficial</title>
     
     <style>
+      /* CARGA DE TU FUENTE PERSONALIZADA */
+      @font-face {
+          font-family: 'FuenteEnunciados';
+          src: url('fuente enunciados.otf') format('opentype');
+      }
+
       /* ESTILOS GENERALES Y FUENTES AGRANDADAS */
       * {
           box-sizing: border-box;
@@ -17,7 +23,7 @@
           background-color: #070707;
           background-image: 
               linear-gradient(rgba(10, 0, 3, 0.85), rgba(7, 7, 7, 0.90)),
-              url("fondo pagina 1.gif");
+              url("fondo pagina.gif");
           background-repeat: repeat;
           background-size: 450px auto;
           background-position: center top;
@@ -154,11 +160,13 @@
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
       }
 
+      /* TÍTULOS DE SECCIÓN APLICANDO LA FUENTE NUEVA */
       .titulo-seccion {
+          font-family: 'FuenteEnunciados', 'Trebuchet MS', sans-serif;
           color: #ffffff;
           border-left: 4px solid #800020;
           padding-left: 14px;
-          font-size: 22px;
+          font-size: 28px;
           letter-spacing: 2px;
           margin-bottom: 22px;
           text-transform: uppercase;
@@ -293,7 +301,7 @@
           }
 
           .titulo-seccion {
-              font-size: 18px;
+              font-size: 22px;
           }
 
           .contenido-bio p {
