@@ -68,6 +68,35 @@
           100% { opacity: 0.70; }
       }
 
+      /* LOGO FLOTANTE LATERAL QUE TE SIGUE AL SCROLLEAR */
+      .logo-flotante-lateral {
+          position: fixed;
+          top: 35%;
+          left: 20px;
+          z-index: 99;
+          width: 140px;
+          padding: 10px;
+          background: rgba(13, 13, 13, 0.85);
+          border: 1px solid #580016;
+          box-shadow: 0 0 15px rgba(128, 0, 32, 0.4);
+          text-align: center;
+          backdrop-filter: blur(4px);
+          transition: transform 0.3s ease;
+      }
+
+      .logo-flotante-lateral img {
+          width: 100%;
+          height: auto;
+          display: block;
+          filter: drop-shadow(0 0 5px #800020);
+          animation: glitch-anim 4s infinite linear alternate-reverse;
+      }
+
+      .logo-flotante-lateral:hover {
+          transform: scale(1.05);
+          border-color: #800020;
+      }
+
       /* HEADER */
       .header-banda {
           padding: 40px 0 20px 0;
@@ -81,7 +110,17 @@
           height: auto;
           display: block;
           margin: 0 auto;
+          animation: glitch-anim 3s infinite linear alternate-reverse;
           filter: drop-shadow(0 0 10px #800020);
+      }
+
+      @keyframes glitch-anim {
+          0% { transform: translate(0); filter: drop-shadow(0 0 10px #800020); }
+          92% { transform: translate(0); filter: drop-shadow(0 0 10px #800020); }
+          93% { transform: translate(-3px, 2px); filter: drop-shadow(-3px 0 #ff0040) drop-shadow(3px 0 #00ffff); }
+          95% { transform: translate(3px, -2px); filter: drop-shadow(3px 0 #ff0040) drop-shadow(-3px 0 #00ffff); }
+          97% { transform: translate(-2px, -1px); filter: drop-shadow(-2px 0 #ff0040); }
+          100% { transform: translate(0); filter: drop-shadow(0 0 12px #ff0040); }
       }
 
       /* NAVEGACIÓN */
@@ -178,7 +217,7 @@
           border-radius: 4px;
       }
 
-      /* EMBLEMA FLOTANTE */
+      /* EMBLEMA FLOTANTE INFERIOR */
       .logo-flotante-contenedor {
           position: fixed;
           bottom: 25px;
@@ -205,16 +244,41 @@
           border-top: 1px solid #1a0007;
       }
 
+      /* ADAPTACIÓN A CELULARES */
+      @media (max-width: 1100px) {
+          .logo-flotante-lateral {
+              display: none;
+          }
+      }
+
       @media (max-width: 768px) {
-          .menu-navegacion { flex-direction: column; }
-          .menu-navegacion a { width: 100%; padding: 12px 0; }
-          .seccion-bloque { padding: 20px 15px; }
+          .menu-navegacion {
+              position: relative;
+              top: auto;
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+          }
+          .menu-navegacion a {
+              padding: 12px 5px;
+              width: 100%;
+              text-align: center;
+              font-size: 12px;
+              border-bottom: 1px solid #1f0008;
+          }
+          .seccion-bloque {
+              padding: 20px 15px;
+          }
       }
     </style>
 </head>
 <body>
 
-  <!-- CABECERA -->
+  <aside class="logo-flotante-lateral">
+    <a href="index.html">
+      <img src="emblema.png" alt="MAL ESTADO">
+    </a>
+  </aside>
+
   <header class="header-banda">
     <div class="contenedor">
       <a href="index.html">
@@ -223,13 +287,12 @@
     </div>
   </header>
 
-  <!-- MENÚ DE NAVEGACIÓN -->
   <nav class="menu-navegacion">
     <a href="index.html#bio">BIOGRAFÍA</a>
     <a href="index.html#musica">MÚSICA</a>
     <a href="shop.html">SHOP</a>
     <a href="material.html" class="activo">MATERIAL CONCEPTUAL</a>
-   <a href="contacto.html">CONTACTO</a>
+    <a href="contacto.html">CONTACTO</a>
   </nav>
 
   <main class="contenedor">
@@ -237,7 +300,6 @@
     <section class="seccion-bloque">
       <h1 class="titulo-seccion">NARRATIVA & CONCEPTO</h1>
       
-      <!-- PORTADA DEL ÁLBUM -->
       <img src="portada.jpg" alt="Portada del Álbum" class="portada-destacada">
 
       <div class="contenido-texto">
@@ -261,7 +323,6 @@
 
   </main>
 
-  <!-- LOGO FLOTANTE -->
   <div class="logo-flotante-contenedor">
     <a href="index.html">
       <img src="emblema.png" alt="Emblema Mal Estado" class="logo-flotante">
